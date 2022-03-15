@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inferential &#8212; FTDS Post Study Materials</title>
+    <title>Terminologies &#8212; FTDS Post Study Materials</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Business Accumen" href="../business/business.html" />
-    <link rel="prev" title="Descriptive" href="desc.html" />
+    <link rel="next" title="Data definition language" href="sql_ddl.html" />
+    <link rel="prev" title="SQL" href="sql_intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -105,28 +105,28 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="stats.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../statistics/stats.html">
    Statistics
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="prob.html">
+    <a class="reference internal" href="../statistics/prob.html">
      Probability
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="desc.html">
+    <a class="reference internal" href="../statistics/desc.html">
      Descriptive
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../statistics/inf.html">
      Inferential
     </a>
    </li>
@@ -154,28 +154,28 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../sql/sql_intro.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="sql_intro.html">
    SQL
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../sql/sql_term.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Terminologies
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../sql/sql_ddl.html">
+    <a class="reference internal" href="sql_ddl.html">
      DDL
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../sql/sql_dml.html">
+    <a class="reference internal" href="sql_dml.html">
      DML
     </a>
    </li>
@@ -282,7 +282,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/wiki/statistics/inf.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/wiki/sql/sql_term.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -307,6 +307,61 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sql-relational-database-terminology">
+   SQL Relational Database Terminology
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-sql-statements">
+   Types of SQL statements
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-schema-statements">
+     SQL schema statements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-data-statements">
+     SQL data statements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-data-change-statements">
+     SQL data change statements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-connection-statements">
+     SQL connection statements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-transaction-statements">
+     SQL transaction statements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-session-statements">
+     SQL session statements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dynamic-sql-statements">
+     Dynamic SQL statements
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -314,19 +369,209 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Inferential</h1>
+                <h1>Terminologies</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sql-relational-database-terminology">
+   SQL Relational Database Terminology
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-sql-statements">
+   Types of SQL statements
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-schema-statements">
+     SQL schema statements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-data-statements">
+     SQL data statements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-data-change-statements">
+     SQL data change statements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-connection-statements">
+     SQL connection statements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-transaction-statements">
+     SQL transaction statements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-session-statements">
+     SQL session statements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dynamic-sql-statements">
+     Dynamic SQL statements
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="inferential">
-<h1>Inferential<a class="headerlink" href="#inferential" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="terminologies">
+<h1>Terminologies<a class="headerlink" href="#terminologies" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sql-relational-database-terminology">
+<h2>SQL Relational Database Terminology<a class="headerlink" href="#sql-relational-database-terminology" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Schema</strong>. Consists of a library, a journal, a journal receiver, an SQL catalog, and optionally a data dictionary. A schema groups related objects and allows you to find the objects by name.</p></li>
+<li><p><strong>Table</strong>. A set of columns and rows.</p></li>
+<li><p><strong>Row</strong>. The horizontal part of a table containing a serial set of columns.</p></li>
+<li><p><strong>Column</strong>. The vertical part of a table of one data type.</p></li>
+<li><p><strong>View</strong>. A subset of columns and rows of one or more tables.</p></li>
+<li><p><strong>Package</strong>. An object type that is used to run SQL statements.</p></li>
+</ul>
+<p>There are several basic types of SQL statements. They are listed here according to their functions.</p>
+</div>
+<div class="section" id="types-of-sql-statements">
+<h2>Types of SQL statements<a class="headerlink" href="#types-of-sql-statements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>SQL schema statements, also known as data definition language (DDL) statements</p></li>
+<li><p>SQL data and data change statements, also known as data manipulation language (DML) statements</p></li>
+<li><p>Dynamic SQL statements</p></li>
+<li><p>Embedded SQL host language statements</p></li>
+</ul>
+<div class="section" id="sql-schema-statements">
+<h3>SQL schema statements<a class="headerlink" href="#sql-schema-statements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>ALTER FUNCTION</p></li>
+<li><p>ALTER MASK</p></li>
+<li><p>ALTER PERMISSION</p></li>
+<li><p>ALTER PROCEDURE</p></li>
+<li><p>ALTER SEQUENCE</p></li>
+<li><p>ALTER TABLE</p></li>
+<li><p>ALTER TRIGGER</p></li>
+<li><p>COMMENT ON</p></li>
+<li><p>CREATE ALIAS</p></li>
+<li><p>CREATE FUNCTION</p></li>
+<li><p>CREATE INDEX</p></li>
+<li><p>CREATE MASK</p></li>
+<li><p>CREATE PERMISSION</p></li>
+<li><p>CREATE PROCEDURE</p></li>
+<li><p>CREATE SCHEMA</p></li>
+<li><p>CREATE SEQUENCE</p></li>
+<li><p>CREATE TABLE</p></li>
+<li><p>CREATE TRIGGER</p></li>
+<li><p>CREATE  TYPE</p></li>
+<li><p>CREATE VARIABLE</p></li>
+<li><p>CREATE VIEW</p></li>
+<li><p>DROP</p></li>
+<li><p>GRANT</p></li>
+<li><p>LABEL ON</p></li>
+<li><p>RENAME</p></li>
+<li><p>REVOKE</p></li>
+<li><p>TRANSFER OWNERSHIP</p></li>
+</ul>
+</div>
+<div class="section" id="sql-data-statements">
+<h3>SQL data statements<a class="headerlink" href="#sql-data-statements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>ALLOCATE CURSOR</p></li>
+<li><p>ASSOCIATE LOCATORS</p></li>
+<li><p>CLOSE</p></li>
+<li><p>DECLARE CURSOR</p></li>
+<li><p>DELETE</p></li>
+<li><p>FETCH</p></li>
+<li><p>FREE LOCATOR</p></li>
+<li><p>HOLD LOCATOR</p></li>
+<li><p>INSERT</p></li>
+<li><p>LOCK TABLE</p></li>
+<li><p>OPEN</p></li>
+<li><p>REFRESH TABLE</p></li>
+<li><p>SELECT INTO</p></li>
+<li><p>SET variable</p></li>
+<li><p>UPDATE</p></li>
+<li><p>VALUES INTO</p></li>
+</ul>
+</div>
+<div class="section" id="sql-data-change-statements">
+<h3>SQL data change statements<a class="headerlink" href="#sql-data-change-statements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>DELETE</p></li>
+<li><p>INSERT</p></li>
+<li><p>MERGE</p></li>
+<li><p>TRUNCATE</p></li>
+<li><p>UPDATE</p></li>
+</ul>
+</div>
+<div class="section" id="sql-connection-statements">
+<h3>SQL connection statements<a class="headerlink" href="#sql-connection-statements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>CONNECT</p></li>
+<li><p>DISCONNECT</p></li>
+<li><p>RELEASE</p></li>
+<li><p>SET CONNECTION</p></li>
+</ul>
+</div>
+<div class="section" id="sql-transaction-statements">
+<h3>SQL transaction statements<a class="headerlink" href="#sql-transaction-statements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>COMMIT</p></li>
+<li><p>RELEASE SAVEPOINT</p></li>
+<li><p>ROLLBACK</p></li>
+<li><p>SAVEPOINT</p></li>
+<li><p>SET TRANSACTION</p></li>
+</ul>
+</div>
+<div class="section" id="sql-session-statements">
+<h3>SQL session statements<a class="headerlink" href="#sql-session-statements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>DECLARE GLOBAL TEMPORARY TABLE</p></li>
+<li><p>SET CURRENT DECFLOAT ROUNDING MODE</p></li>
+<li><p>SET CURRENT DEGREE</p></li>
+<li><p>SET CURRENT IMPLICIT XMLPARSE OPTION</p></li>
+<li><p>SET CURRENT TEMPORAL SYSTEM_TIME</p></li>
+<li><p>SET ENCRYPTION PASSWORD</p></li>
+<li><p>SET PATH</p></li>
+<li><p>SET SCHEMA</p></li>
+<li><p>SET SESSION AUTHORIZATION</p></li>
+</ul>
+</div>
+<div class="section" id="dynamic-sql-statements">
+<h3>Dynamic SQL statements<a class="headerlink" href="#dynamic-sql-statements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>ALLOCATE DESCRIPTOR</p></li>
+<li><p>compound (dynamic)</p></li>
+<li><p>DEALLOCATE DESCRIPTOR</p></li>
+<li><p>DESCRIBE</p></li>
+<li><p>DESCRIBE CURSOR</p></li>
+<li><p>DESCRIBE INPUT</p></li>
+<li><p>DESCRIBE PROCEDURE</p></li>
+<li><p>DESCRIBE TABLE</p></li>
+<li><p>EXECUTE</p></li>
+<li><p>EXECUTE IMMEDIATE</p></li>
+<li><p>GET DESCRIPTOR</p></li>
+<li><p>PREPARE</p></li>
+<li><p>SET DESCRIPTOR</p></li>
+</ul>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -342,7 +587,7 @@ const thebe_selector_output = ".output, .cell_output"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./wiki\statistics"
+            path: "./wiki\sql"
         },
         predefinedOutput: true
     }
@@ -354,17 +599,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="desc.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="sql_intro.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Descriptive</p>
+            <p class="prev-next-title">SQL</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../business/business.html" title="next page">
+    <a class='right-next' id="next-link" href="sql_ddl.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Business Accumen</p>
+        <p class="prev-next-title">Data definition language</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

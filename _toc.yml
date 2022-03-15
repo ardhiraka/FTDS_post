@@ -17,6 +17,13 @@ parts:
     sections:
     - file: wiki/business/metrics
     - file: wiki/business/term
+  - file: wiki/sql/sql_intro
+    sections:
+    - file: wiki/sql/sql_term
+    - file: wiki/sql/sql_ddl
+      title: DDL
+    - file: wiki/sql/sql_dml
+      title: DML
 
 - caption: Self Learning
   chapters:
@@ -29,3 +36,7 @@ parts:
   - file: job/DA/da_intro
     sections:
     - file: job/DA/da1
+
+- caption: References
+  chapters:
+  - file: refs
