@@ -1,0 +1,31 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+title: FTDS Post Study Materials
+
+parts:
+- caption: Wiki
+  chapters:
+  - file: wiki/statistics/stats
+    sections:
+    - file: wiki/statistics/prob
+    - file: wiki/statistics/desc
+    - file: wiki/statistics/inf
+  - file: wiki/business/business
+    sections:
+    - file: wiki/business/metrics
+    - file: wiki/business/term
+
+- caption: Self Learning
+  chapters:
+  - file: self/python/python
+    sections:
+    - file: self/python/exception
+    
+- caption: Job-Related Prep
+  chapters:
+  - file: job/DA/da_intro
+    sections:
+    - file: job/DA/da1
