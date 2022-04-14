@@ -30,6 +30,11 @@ parts:
   - file: self/python/python
     sections:
     - file: self/python/exception
+  - file: self/sqlself/sqlself
+    sections:
+    - file: self/sqlself/sql_practice1
+    - file: self/sqlself/sql_practice2
+    - file: self/sqlself/sql_practice3
     
 - caption: Job-Related Prep
   chapters:

@@ -1,0 +1,984 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SQLite Practice 1 &#8212; FTDS Post Study Materials</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="MySQL Practice 2" href="sql_practice2.html" />
+    <link rel="prev" title="SQL" href="sqlself.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">FTDS Post Study Materials</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Hacktiv8 Data Science Fulltime Program Post Study Materials
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Wiki
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../wiki/statistics/stats.html">
+   Statistics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/statistics/prob.html">
+     Probability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/statistics/desc.html">
+     Descriptive
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/statistics/inf.html">
+     Inferential
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../wiki/business/business.html">
+   Business Accumen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/business/metrics.html">
+     Metrics and Formulas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/business/term.html">
+     Terminologies
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../wiki/sql/sql_intro.html">
+   SQL
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/sql/sql_term.html">
+     Terminologies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/sql/sql_ddl.html">
+     DDL
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/sql/sql_dml.html">
+     DML
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Self Learning
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../python/python.html">
+   Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python/exception.html">
+     Exceptions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="sqlself.html">
+   SQL
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     SQLite Practice 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sql_practice2.html">
+     MySQL Practice 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sql_practice3.html">
+     MySQL Practice 3
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Job-Related Prep
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../job/DA/da_intro.html">
+   Data Analyst
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../job/DA/da1.html">
+     Data Analyst
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../refs.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/self/sqlself/sql_practice1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/self/sqlself/sql_practice1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basics-select-where-order-by">
+   Basics — SELECT, WHERE, ORDER BY
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exploring-the-data">
+     Exploring the data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#intermediate-sql-aggregation-join-union">
+   Intermediate SQL — Aggregation, JOIN, UNION
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aggregation-sum-avg-min-max-group-by">
+     Aggregation — SUM, AVG, MIN, MAX, GROUP BY
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#join-theory">
+     JOIN Theory
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#break-session">
+   Break Session
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advanced-sql">
+   Advanced SQL
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#practice-session">
+   Practice Session!!
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>SQLite Practice 1</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basics-select-where-order-by">
+   Basics — SELECT, WHERE, ORDER BY
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exploring-the-data">
+     Exploring the data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#intermediate-sql-aggregation-join-union">
+   Intermediate SQL — Aggregation, JOIN, UNION
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aggregation-sum-avg-min-max-group-by">
+     Aggregation — SUM, AVG, MIN, MAX, GROUP BY
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#join-theory">
+     JOIN Theory
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#break-session">
+   Break Session
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advanced-sql">
+   Advanced SQL
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#practice-session">
+   Practice Session!!
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="sqlite-practice-1">
+<h1>SQLite Practice 1<a class="headerlink" href="#sqlite-practice-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Start by installing DB Browser for SQLite from here: https://sqlitebrowser.org/</p></li>
+<li><p>Download DB File Here: https://github.com/ardhiraka/AlumVol1/blob/main/alum.db</p></li>
+<li><p>Open DB File with DB Browser</p></li>
+</ol>
+</div>
+<div class="section" id="basics-select-where-order-by">
+<h2>Basics — SELECT, WHERE, ORDER BY<a class="headerlink" href="#basics-select-where-order-by" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exploring-the-data">
+<h3>Exploring the data<a class="headerlink" href="#exploring-the-data" title="Permalink to this headline">¶</a></h3>
+<p>Let’s take a quick look at the table before we filter it.</p>
+<ul class="simple">
+<li><p>SELECT * selects every column in the table.</p></li>
+<li><p>LIMIT 50 means we only get the first 50 rows.</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="mi">50</span><span class="w"></span>
+</pre></div>
+</div>
+<p>SELECT, WHERE, ORDER BY</p>
+<p>We’re going to tackle these in one query.</p>
+<p>The order of functions is essential in SQL. The order shown in these queries is generally the only order that works</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span>
+<span class="w">   </span><span class="nb">date</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">avgprice</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">totalvol</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">totalvol</span><span class="w"> </span><span class="k">DESC</span><span class="w"></span>
+</pre></div>
+</div>
+<p>SELECT</p>
+<ul class="simple">
+<li><p>Here we define our columns via a comma separated list.</p></li>
+<li><p>We can use * to select all columns in the table.</p></li>
+</ul>
+<p>FROM</p>
+<ul class="simple">
+<li><p>Here we define the table we want to pull the data from.</p></li>
+<li><p>In this case, the name of the table is avocados.</p></li>
+</ul>
+<p>WHERE</p>
+<ul class="simple">
+<li><p>This is a filter. We can filter by any column in the table even if we haven’t selected it.</p></li>
+<li><p>Multiple filters can be chained together using AND/OR.</p></li>
+</ul>
+<p>ORDER BY</p>
+<ul class="simple">
+<li><p>This sorts our data by the specified column.</p></li>
+<li><p>We can specify ASCending or DESCending afterwards to change the order.</p></li>
+</ul>
+<p>Using WHERE</p>
+<p>Comparison Operators</p>
+<ul class="simple">
+<li><p>We can use typical comparison operators with WHERE such as equals, greater than, less than etc.</p></li>
+<li><p>These are standard symbols. You can see a full list here.</p></li>
+</ul>
+<p>Contains</p>
+<ul class="simple">
+<li><p>We can also use LIKE to find strings that contain a word.</p></li>
+<li><p>We combine LIKE with a percent symbol to specify anything after or anything before.</p></li>
+<li><p>The below query selects anything starting with ‘A’. We could put the percent sign before to find anything ending with ‘A’ (case-sensitive) or on both sides to find anything containing this character.</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avoregion</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">region</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;A%&#39;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Filtering with a list</p>
+<ul class="simple">
+<li><p>One of the most commonly used functions with WHERE is IN which allows you to pass a list of items to filter by.</p></li>
+<li><p>In the example below, we treat date as a string and pass 2 dates to filter.</p></li>
+<li><p>We also combine this with a regionid filter.</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2015-01-04&#39;</span><span class="p">,</span><span class="s1">&#39;2015-01-11&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="k">AND</span><span class="w"> </span><span class="n">regionid</span><span class="o">=</span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Working with Strings and Dates</p>
+<p>Strings</p>
+<p>String and Date syntax can vary a lot depending on which database management system you are using. In general, most of the string and date operations you can do in Excel are transferable to SQL but with different syntax.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span>
+<span class="w">   </span><span class="k">UPPER</span><span class="p">(</span><span class="n">region</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SUBSTR</span><span class="p">(</span><span class="n">region</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SUBSTR</span><span class="p">(</span><span class="n">region</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avoregion</span><span class="w"></span>
+</pre></div>
+</div>
+<p>UPPER</p>
+<ul class="simple">
+<li><p>This converts the text to uppercase.</p></li>
+<li><p>This is very useful when used in conjunction with WHERE clauses if you are searching for a single word in text that is a mixture of cases.</p></li>
+</ul>
+<p>SUBSTR</p>
+<ul class="simple">
+<li><p>This takes a subsection of the string using the numbers we specify, the first indicates the character to start on and the second is the number of characters we take.</p></li>
+<li><p>We can also use negative numbers to get the last characters.</p></li>
+</ul>
+<p>Dates</p>
+<p>When working with dates, the key is to make sure your data has the correct data type; it should be stored as an actual date.</p>
+<p>If it isn’t you’ll need to either talk to your database administrator and get them to update the ‘create table’ statement to convert this.</p>
+<p>In SQLite we can’t work with dates as easily, but the Syntax below will work in Postgres.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">my_date</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">year</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">month</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">day</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;hour&#39;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">hour</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;minute&#39;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">minute</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;second&#39;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">second</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;decade&#39;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">decade</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;dow&#39;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">day_of_week</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="k">table_name</span><span class="w"></span>
+</pre></div>
+</div>
+<p>If in Postgres, you can also use the DATE_PART function</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>SELECT DATE_PART(‘year’, my_date) AS year 
+FROM table_name
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="intermediate-sql-aggregation-join-union">
+<h2>Intermediate SQL — Aggregation, JOIN, UNION<a class="headerlink" href="#intermediate-sql-aggregation-join-union" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="aggregation-sum-avg-min-max-group-by">
+<h3>Aggregation — SUM, AVG, MIN, MAX, GROUP BY<a class="headerlink" href="#aggregation-sum-avg-min-max-group-by" title="Permalink to this headline">¶</a></h3>
+<p>Let’s aggregate the data using the type column. We have 2 types, which at the moment are called ‘1’ and ‘2’. We’ll find out what those mean later.
+The order is also very important here. The GROUP BY must go at the end, and if we are using a WHERE, this should go before the GROUP BY.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span>
+<span class="w">   </span><span class="k">type</span><span class="w"></span>
+<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">avgprice</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">totalvol</span><span class="p">)</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">type</span><span class="w"></span>
+</pre></div>
+</div>
+<p>AVG</p>
+<p>This takes the average of the column in brackets by row</p>
+<p>SUM</p>
+<p>This takes the sum of the column in brackets by row
+These aggregate functions are calculated over the rows selected which means we need to group the rows to get to what we want — the average or sum by type</p>
+<p>GROUP BY
+This is the column we want to group by.
+SQL is performing the AVG or SUM calculation on all the rows within a group based on this function.</p>
+<p>Other commonly used aggregations are MIN, MAX, COUNT.</p>
+<p>Aggregate Filtering</p>
+<p>Let’s say we want to take our previous example and filter out the types where the avgprice is less than 1.5.</p>
+<p>Obviously there are only 2 types here so we could do this by eye but imagine we had hundreds!</p>
+<p>We’ve already learnt to filter using WHERE but this won’t work to achieve what we want.</p>
+<p>We can’t use WHERE with aggregate functions such as SUM and AVG because this will filter the underlying rows, not our summarised data.</p>
+<p>Filtering the underlying data means we actually filter the individual rows and not our summary table. See the example below.</p>
+<p>If we use WHERE, the AVG and SUM are now calculated using only rows with avgprice &gt; 1.5.</p>
+<p>Enter HAVING. This allows us to filter the aggregated rows after they’ve been calculated.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span>
+<span class="w">   </span><span class="k">type</span><span class="w"></span>
+<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">avgprice</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">totalvol</span><span class="p">)</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">type</span><span class="w"></span>
+<span class="k">HAVING</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">avgprice</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="join-theory">
+<h3>JOIN Theory<a class="headerlink" href="#join-theory" title="Permalink to this headline">¶</a></h3>
+<p>JOIN might be the single most important function in SQL. Understanding how joins work, in my opinion, takes you from a beginner to intermediate SQL user.
+In order to understand joins, you should understand the basics of relational databases and STAR schema tables. The first part of this guide gives a good explanation.</p>
+<p>This is the schema of our set of tables. Without making joins we can’t get the actual type or region names because our Avocados table uses IDs in place of the actual names.</p>
+<p><img alt="schema" src="https://miro.medium.com/max/700/1*x3f8hI3SZ_Ozsl3xljuyAw.png" /></p>
+<p>There are 4 main types of join; Inner, Outer, Left and Right. The differences are the rows that are kept in the joined table once the join is made.</p>
+<p><img alt="schema2" src="https://miro.medium.com/max/452/1*1ZEWh4BRhzQ_dLEI46d-Tg.png" /></p>
+<ul class="simple">
+<li><p>INNER JOIN: Returns all rows where there is at least one match in BOTH tables.</p></li>
+<li><p>LEFT JOIN: Returns all rows from the left table and matched rows from the right table.</p></li>
+<li><p>RIGHT JOIN: Returns all rows from the right table and matched rows from the left table.</p></li>
+<li><p>FULL JOIN: Returns all rows where there is a match in ONE of the tables.</p></li>
+</ul>
+<p>Consider a situation where a table has missing rows — eg if our Region table above was missing some region ids that were present in the main Avocado table.</p>
+<p>In this situation, an INNER JOIN would cause us to lose any rows without a corresponding region id, so here we might want to use a left, right or outer join to keep all rows in the Avocado table.</p>
+<p>It’s also worth noting that if there are duplicates in your dataset with the same ID, joining these will cause multiple lines to be created.</p>
+<p>JOIN Composition</p>
+<p><img alt="join" src="https://miro.medium.com/max/700/1*SluabWGzMyeRx8eHIdfhOQ.png" /></p>
+<ol class="simple">
+<li><p>Specify the join type</p></li>
+<li><p>Specify the table you are bringing on</p></li>
+<li><p>After the ON, we name the columns</p></li>
+<li><p>The order here doesn’t matter, if doing a LEFT JOIN, the left table is always the original table. The table you are bringing in is always the right table.</p></li>
+<li><p>Specify the column</p></li>
+<li><p>We put an equals sign between each column</p></li>
+<li><p>This is the table you are joining to</p></li>
+<li><p>This is the columns we are joining on. It should be equivalent to the table in ‘table1’ eg the same id.</p></li>
+</ol>
+<p>You can use AND to join on multiple columns.</p>
+<p>JOIN in SQL</p>
+<p>We’ll just use left joins for the tutorial, but if you are following along, feel free to experiment with other join types.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
+<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">avotype</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">avocado</span><span class="p">.</span><span class="k">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avotype</span><span class="p">.</span><span class="n">typeid</span><span class="w"></span>
+</pre></div>
+</div>
+<p>We now have the columns typeid and type from the avo_type table. Let’s select only the date, avgprice and type columns.</p>
+<p>Take a look at the query below, we’ve changed 2 parts of this query.</p>
+<p>First, we’ve specified exactly which columns we’ll be using.</p>
+<p>Then, tables have been given aliases.</p>
+<p>We’ve called the avocados table ‘av’ and the avo_type table ‘avt’. We’ve also used these as an easy way to specify which columns to select. You’ll notice the type column is in both tables, so specifying which type we want is essential here.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span>
+<span class="w">   </span><span class="n">av</span><span class="p">.</span><span class="nb">date</span><span class="w"></span>
+<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">av</span><span class="p">.</span><span class="n">avgprice</span><span class="w"></span>
+<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">avt</span><span class="p">.</span><span class="k">type</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">av</span><span class="w"></span>
+<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">avotype</span><span class="w"> </span><span class="n">avt</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">av</span><span class="p">.</span><span class="k">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avt</span><span class="p">.</span><span class="n">typeid</span><span class="w"></span>
+</pre></div>
+</div>
+<p>UNION</p>
+<p>Unions are used when we want to put one table on top of another. It isn’t really applicable for the data we have in this example, but I’ll show the syntax anyway.</p>
+<p>In this query, we filter to type =1 and then use a union to stack this on top of a table for type !=1</p>
+<p>Note that we’ve renamed the sum column here but the UNION still stacks it as it uses the position of the column and not the column name.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">type</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">totalvol</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">totalvol</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">av</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"></span>
+<span class="k">UNION</span><span class="w"></span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">type</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">totalvol</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">t</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">av</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="break-session">
+<h2>Break Session<a class="headerlink" href="#break-session" title="Permalink to this headline">¶</a></h2>
+<p>Go grab your coffee and chill for 15 min before we continue the session.</p>
+</div>
+<div class="section" id="advanced-sql">
+<h2>Advanced SQL<a class="headerlink" href="#advanced-sql" title="Permalink to this headline">¶</a></h2>
+<p>Exploring the Example Data</p>
+<p>Let’s take a quick look at the table before we filter it.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="mi">50</span><span class="w"></span>
+</pre></div>
+</div>
+<p>There are also 2 mapping tables in this dataset for type and regionid which map these numeric categories to their actual text.</p>
+<p>JOIN as a Filter</p>
+<p>By combining an INNER JOIN with a filter using AND, we can filter the table as we are joining it, providing a small performance boost over a regular join and WHERE filter. The is handy for big datasets but you’ll need to to know your data well as you may drop rows you didn’t intend to because this technique uses the INNER JOIN.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">avoregion</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
+<span class="k">AND</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Denver&#39;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Self Joins</p>
+<p>Self joins are particularly useful when we need information in different rows to be in the same row. My dataset isn’t exactly set up to do this but we can still illustrate the point.</p>
+<p>Let’s try to get the total volume for 2 regions on the same date on the same row.</p>
+<p>First, note the aliases we’ve given to each avocados table. It’s the same table, but we’ve called each one a and b.</p>
+<p>Inside the join, we’ve joined on date and regionid but we’ve used the does not equal operator (&lt;&gt;) to ensure we don’t join the same types together.</p>
+<p>The result is a single row with both types on it, instead of each appearing in separate rows.</p>
+<p>Please note, we do end up with duplicate data here as we have every combination of types. This could be avoided by filtering.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span>
+<span class="w">  </span><span class="n">a</span><span class="p">.</span><span class="nb">date</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">avo_a</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="k">type</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="n">b</span><span class="p">.</span><span class="n">avo_a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="k">type</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">b</span><span class="w"> </span>
+<span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="nb">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="nb">date</span><span class="w"> </span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="k">type</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="k">type</span><span class="w"> </span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="nb">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;2015-01-04&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+</div>
+<p>CASE WHEN</p>
+<p>CASE WHEN is essentially an IF function, which is found in almost all coding languages. As always, remember the ‘flow’: IF -&gt; THEN -&gt; ELSE when writing these.</p>
+<p>We’ll use this to map types to the actual types (we could also do this with a join to our types table).</p>
+<p>Note that the formula starts with CASE and ends with END. We can give the column an alias using AS after the END.</p>
+<p>We can have as many WHEN/THEN clases as needed. Here we only need one because we have 2 types and the 2nd is covered by the ELSE</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="nb">date</span><span class="p">,</span><span class="w"> </span><span class="n">avo_a</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="k">CASE</span><span class="w"></span>
+<span class="w">  </span><span class="k">WHEN</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;conventional&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;organic&#39;</span><span class="w"></span>
+<span class="w"> </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">avotype</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">regionid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Subqueries</p>
+<p>A subquery is a nested query; it’s a query within a query
+Let’s say we want the full dataset but only for the top 10 regions by total volume.</p>
+<p>We could find the top 10 with the query below, then we could use this list of regions to filter the main table. But what if we got new data and the top 10 changed? We’d have to run both queries again. We can make this more dynamic using a subquery.</p>
+<p>To get the top 10, we’d run something like this:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">region</span><span class="p">,</span><span class="w"> </span><span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">totalvol</span><span class="p">))</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">avoregion</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">DESC</span><span class="w"></span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In the query below, we use an INNER JOIN to filter the list to the regions in the subquery. We can also bring back data from the subquery because we’ve joined it.</p>
+<p>Please note how aliases work here. The subquery aliases are independent of the main query aliases, which is why we have 2 ‘a’ and ‘b’ aliases. To refer to subquery columns we have to use the subquery alias which is c in this case.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="nb">date</span><span class="p">,</span><span class="w"> </span><span class="n">totalvol</span><span class="p">,</span><span class="w"> </span><span class="n">avo_a</span><span class="p">,</span><span class="w"> </span><span class="n">avo_b</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">region</span><span class="p">,</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">total_totalvol</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">avoregion</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="p">,</span><span class="w"> </span><span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">totalvol</span><span class="p">))</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_totalvol</span><span class="w"></span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="w">  </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">avoregion</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
+<span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">DESC</span><span class="w"></span>
+<span class="w">  </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">c</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Subqueries can also be used after a FROM or WHERE clause. Let’s illustrate these with a simple example.</p>
+<p>FROM Subquery</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">total_totalvol</span><span class="p">)</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="p">,</span><span class="w"> </span><span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">totalvol</span><span class="p">))</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_totalvol</span><span class="w"></span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="w">  </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">avoregion</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
+<span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">DESC</span><span class="w"></span>
+<span class="w">  </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>WHERE Subquery</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">regionid</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="n">regionid</span><span class="w"></span>
+<span class="w">  </span><span class="k">FROM</span><span class="w">  </span><span class="n">avoregion</span><span class="w"> </span>
+<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">region</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;West%&#39;</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Common Table Expressions</p>
+<p>A Common Table Expression (aka CTE, aka WITH statement) is a temporary data set to be used as part of a query. It only exists during the execution of that query; it cannot be used in other queries even within the same session</p>
+<p>Common Table Expressions are recommended if you plan to reuse the subquery within the same query because the subquery is temporarily saved to memory, meaning it doesn’t need to be run multiple times. They generally also look much cleaner, so if you are sharing code it can be helpful for legibility.</p>
+<p>In this example we’ll just use a CTE in a way that could also be done with a subquery and we’ll take the INNER JOIN example from above.</p>
+<p>Here, we specify the subquery above our main query. We name it ‘top’ and specify the column names, then write a subquery. We can now call ‘top’ throughout the query to use this.</p>
+<p>If we call it multiple types, SQL only has to generate the table once.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">WITH</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="p">(</span><span class="n">regionid</span><span class="p">,</span><span class="w"> </span><span class="n">total_totalvol</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="p">,</span><span class="w"> </span><span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">totalvol</span><span class="p">))</span><span class="w"></span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="w">  </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">avoregion</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
+<span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">DESC</span><span class="w"></span>
+<span class="w">  </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span>
+<span class="k">SELECT</span><span class="w"> </span><span class="nb">date</span><span class="p">,</span><span class="w"> </span><span class="n">totalvol</span><span class="p">,</span><span class="w"> </span><span class="n">avo_a</span><span class="p">,</span><span class="w"> </span><span class="n">avo_b</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">region</span><span class="p">,</span><span class="w"> </span><span class="n">top</span><span class="p">.</span><span class="n">total_totalvol</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">avoregion</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">top</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Window Functions</p>
+<blockquote>
+<div><p>A window function performs a calculation across a set of table rows that are somehow related to the current row. This is comparable to the type of calculation that can be done with an aggregate function. But unlike regular aggregate functions, use of a window function does not cause rows to become grouped into a single output row — the rows retain their separate identities. Behind the scenes, the window function is able to access more than just the current row of the query result.</p>
+</div></blockquote>
+<p>Basically — we can use Window functions to look at rows above and below each row.</p>
+<p>Running Total</p>
+<p>The OVER ORDER BY sequence is the window function. OVER is almost like a GROUP BY, specifying how we want to construct our sum. The ORDER BY allows us to create the running total</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span>
+<span class="w">   </span><span class="nb">date</span><span class="w"></span>
+<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">avo_a</span><span class="w"></span>
+<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">avo_a</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">running_total</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">regionid</span><span class="w"> </span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="o">=</span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Total by date</p>
+<p>Here, we use PARTITION BY to group the SUM by a given column (Date in this case)</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span>
+<span class="w">   </span><span class="nb">date</span><span class="w"></span>
+<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">avo_a</span><span class="w"></span>
+<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">type</span><span class="w"></span>
+<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">avo_a</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">date_total</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">regionid</span><span class="w"> </span><span class="o">=</span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Moving Average</p>
+<p>This is where things start to heat up. By using AVG and ORDER BY date, we can specify ROWS to take a moving average. 3 PRECEDING is a 3 day moving average, but we can specify any number.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span>
+<span class="w">   </span><span class="nb">date</span><span class="w"></span>
+<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">avo_a</span><span class="w"></span>
+<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">avo_a</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">ASC</span><span class="w">  </span><span class="k">ROWS</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">PRECEDING</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">date_total</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">regionid</span><span class="w"> </span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="k">type</span><span class="o">=</span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Get First Row</p>
+<p>Let’s say we have varying end dates for each region. We can use Window Functions combined with a Subquery to get the first or last dates.</p>
+<p>First, let’s define what our Subquery will be. The below query adds a row number, grouped by region id and ordered from most recent to oldest. We can select the first row from each grouping to get the newest date</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span>
+<span class="w">   </span><span class="nb">date</span><span class="w"></span>
+<span class="w">   </span><span class="p">,</span><span class="w"> </span><span class="n">regionid</span><span class="w"></span>
+<span class="w">   </span><span class="p">,</span><span class="w"> </span><span class="n">ROW_NUMBER</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">regionid</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">desc</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">row_number</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">regionid</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Now, we subquery the original and take only the first row.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="nb">date</span><span class="p">,</span><span class="w"> </span><span class="n">regionid</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span>
+<span class="w">     </span><span class="nb">date</span><span class="w"></span>
+<span class="w">     </span><span class="p">,</span><span class="w"> </span><span class="n">regionid</span><span class="w"></span>
+<span class="w">     </span><span class="p">,</span><span class="w"> </span><span class="n">ROW_NUMBER</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">regionid</span><span class="w"> </span>
+<span class="w">     </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">desc</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">row_number</span><span class="w"></span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
+<span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">regionid</span><span class="p">)</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">row_number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="practice-session">
+<h2>Practice Session!!<a class="headerlink" href="#practice-session" title="Permalink to this headline">¶</a></h2>
+<p>Use this <a class="reference external" href="https://github.com/ardhiraka/AlumVol1/blob/main/movies.sqlite">db</a> and explore its table.</p>
+<p>Answer the following questions:</p>
+<ol class="simple">
+<li><p>Check how many movies are present in iMDB.</p></li>
+<li><p>Write SQL syntax to find these 3 directors: James Cameron ; Luc Besson ; John Woo</p></li>
+<li><p>Find all directors with name starting with Steven.</p></li>
+<li><p>Count female directors.</p></li>
+<li><p>Find the name of the 10th first women directors?</p></li>
+<li><p>What are the 3 most popular movies?</p></li>
+<li><p>What are the 3 most bankable movies?</p></li>
+<li><p>What is the most awarded average vote since the January 1st, 2000?</p></li>
+<li><p>Which movie(s) were directed by Brenda Chapman?</p></li>
+<li><p>Whose director made the most movies?</p></li>
+<li><p>Whose director is the most bankable?</p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./self\sqlself"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="sqlself.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">SQL</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="sql_practice2.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MySQL Practice 2</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By FTDS Curriculum Team<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

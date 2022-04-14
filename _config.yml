@@ -11,7 +11,7 @@ only_build_toc_files: true
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: false
+  execute_notebooks: auto
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -35,3 +35,9 @@ html:
   use_repository_button: false
   use_edit_page_button: false
   favicon: images/favicon.ico
+
+parse:
+  myst_enable_extensions:
+    # don't forget to list any other extensions you want enabled,
+    # including those that are enabled by default!
+    - html_image
