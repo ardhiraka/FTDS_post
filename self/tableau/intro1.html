@@ -1,0 +1,975 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tableau Introduction &#8212; FTDS Post Study Materials</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Tableau Dashboard" href="intro2.html" />
+    <link rel="prev" title="Tableau" href="tableau.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">FTDS Post Study Materials</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Hacktiv8 Data Science Fulltime Program Post Study Materials
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Wiki
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../wiki/statistics/stats.html">
+   Statistics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/statistics/prob.html">
+     Probability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/statistics/desc.html">
+     Descriptive
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/statistics/inf.html">
+     Inferential
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../wiki/business/business.html">
+   Business Accumen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/business/metrics.html">
+     Metrics and Formulas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/business/term.html">
+     Terminologies
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../wiki/sql/sql_intro.html">
+   SQL
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/sql/sql_term.html">
+     Terminologies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/sql/sql_ddl.html">
+     DDL
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/sql/sql_dml.html">
+     DML
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Self Learning
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../python/python.html">
+   Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python/exception.html">
+     Exceptions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../sqlself/sqlself.html">
+   SQL
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sqlself/sql_practice1.html">
+     SQLite Practice 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sqlself/sql_practice2.html">
+     MySQL Practice 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sqlself/sql_practice3.html">
+     MySQL Practice 3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="tableau.html">
+   Tableau
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Tableau Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="intro2.html">
+     Tableau Dashboard
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="intro3.html">
+     Tableau Dashboard Practice
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Job-Related Prep
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../job/DA/da_intro.html">
+   Data Analyst
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../job/DA/da1.html">
+     Data Analyst
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../refs.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/self/tableau/intro1.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-tableau">
+   What is Tableau?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset-introduction">
+   Dataset Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#download-tableau">
+   Download Tableau
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tableau-approach">
+   Tableau Approach
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-tableu-terminology">
+   Basic Tableu Terminology
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-connector">
+     Data Connector
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#worksheets">
+     Worksheets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#connect-to-datasource">
+   Connect to DataSource
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-analysis">
+   Data Analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-type">
+     Data Type
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#measures-and-dimensions">
+     Measures and Dimensions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-visualization">
+   Data Visualization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#histograms">
+     Histograms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#count-plots">
+     Count Plots
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bar-chart">
+     Bar Chart
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tableaus-marks-card">
+     Tableau’s Marks Card
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stacked-chart">
+     Stacked Chart
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#more-visualizations">
+     More Visualizations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizing-multiple-variables">
+     Visualizing Multiple Variables
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#marks-tooltips-and-annotations">
+   Marks, Tooltips, and Annotations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tooltips">
+     Tooltips
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#annotations">
+     Annotations
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Tableau Introduction</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-tableau">
+   What is Tableau?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset-introduction">
+   Dataset Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#download-tableau">
+   Download Tableau
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tableau-approach">
+   Tableau Approach
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-tableu-terminology">
+   Basic Tableu Terminology
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-connector">
+     Data Connector
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#worksheets">
+     Worksheets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#connect-to-datasource">
+   Connect to DataSource
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-analysis">
+   Data Analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-type">
+     Data Type
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#measures-and-dimensions">
+     Measures and Dimensions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-visualization">
+   Data Visualization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#histograms">
+     Histograms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#count-plots">
+     Count Plots
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bar-chart">
+     Bar Chart
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tableaus-marks-card">
+     Tableau’s Marks Card
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stacked-chart">
+     Stacked Chart
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#more-visualizations">
+     More Visualizations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizing-multiple-variables">
+     Visualizing Multiple Variables
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#marks-tooltips-and-annotations">
+   Marks, Tooltips, and Annotations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tooltips">
+     Tooltips
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#annotations">
+     Annotations
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="tableau-introduction">
+<h1>Tableau Introduction<a class="headerlink" href="#tableau-introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-tableau">
+<h2>What is Tableau?<a class="headerlink" href="#what-is-tableau" title="Permalink to this headline">¶</a></h2>
+<p>Tableau is a powerful data visualization tool used in the Business Intelligence industry. It helps simplify raw data into an easily understandable format.</p>
+<p>It is a lot easier to break down complex data with Tableau and generate valuable insights. These insights can then be used by companies to make data-driven decisions.</p>
+</div>
+<div class="section" id="dataset-introduction">
+<h2>Dataset Introduction<a class="headerlink" href="#dataset-introduction" title="Permalink to this headline">¶</a></h2>
+<p>The data set we will be using in this tutorial is Kaggles Titanic Dataset. You can download from <a class="reference external" href="https://github.com/ardhiraka/PFDS_sources/raw/master/titanic.xlsx">here</a>.</p>
+<p>There are 12 variables present in this data set. Here is an overview:</p>
+<ul class="simple">
+<li><p>PassengerId: Each passengers unique ID</p></li>
+<li><p>Pclass: The passenger class; 1st, 2nd and 3rd. The first was the upper class, and the third was the lower class.</p></li>
+<li><p>Name</p></li>
+<li><p>Sex</p></li>
+<li><p>Age</p></li>
+<li><p>SibSp: Number of siblings and/or spouses on board</p></li>
+<li><p>Parch: Number of parents and/or children on board</p></li>
+<li><p>Ticket: Ticket Number</p></li>
+<li><p>Fare</p></li>
+<li><p>Cabin</p></li>
+<li><p>Embarked: Port of embarkation</p></li>
+<li><p>Survived: Whether or not a passenger survived the Titanic. A value of 1 means the passenger survived, and a value of 0 means they did not.</p></li>
+</ul>
+<p>For this data analysis, We will created a list of simple questions we can answer by visualizing the Titanic dataset:</p>
+<ul class="simple">
+<li><p>How many people survived the Titanic?</p></li>
+<li><p>Which gender was more likely to survive the Titanic?</p></li>
+<li><p>Did the class the passenger was in have any impact on their survival?</p></li>
+<li><p>Were younger people more likely to survive the Titanic?</p></li>
+<li><p>Were passengers who paid higher fares more likely to survive the Titanic?</p></li>
+</ul>
+</div>
+<div class="section" id="download-tableau">
+<h2>Download Tableau<a class="headerlink" href="#download-tableau" title="Permalink to this headline">¶</a></h2>
+<p>Click on this <a class="reference external" href="https://public.tableau.com/s/download">link</a> to download and install Tableau Public on your computer. Tableau Public is a free service that allows anyone to create interactive visualizations.</p>
+<p>It is a free version of the Tableau Software that allows you to use most of the software functions. You can connect to CSV files, Excel spreadsheets, and text documents.</p>
+<p>However, you will not be able to save your work locally on your computer. You will have to save and access it from Tableau Public.</p>
+</div>
+<div class="section" id="tableau-approach">
+<h2>Tableau Approach<a class="headerlink" href="#tableau-approach" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Question: what are we aiming to answer?</p></li>
+<li><p>Exploration: what does our data support?</p></li>
+<li><p>Design: how will our dashboard look?</p></li>
+</ol>
+</div>
+<div class="section" id="basic-tableu-terminology">
+<h2>Basic Tableu Terminology<a class="headerlink" href="#basic-tableu-terminology" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-connector">
+<h3>Data Connector<a class="headerlink" href="#data-connector" title="Permalink to this headline">¶</a></h3>
+<p>When you first open Tableau, you will be prompted to connect to a data file or server. Typically, locally saved data files or extracts are used. In my experience, servers are used by large organizations to align data files to what is held in the company records. To connect a data file, select a file type, then:</p>
+<ul class="simple">
+<li><p>Connection: shows which data files have been uploaded</p></li>
+<li><p>Files: shows all the sheets from the file</p></li>
+<li><p>Note: if this is a data refresh, make sure to refresh all extracts on the worksheets</p></li>
+</ul>
+</div>
+<div class="section" id="worksheets">
+<h3>Worksheets<a class="headerlink" href="#worksheets" title="Permalink to this headline">¶</a></h3>
+<p>Worksheets are where all the visualizations are built. Worksheets can be combined and published as Dashboards or Storyboards.</p>
+<ul class="simple">
+<li><p>Show Me: Tableau’s standard charts, they are highly customizable so a great place to draw inspiration from</p></li>
+<li><p>Data Pane: loads in all columns from the data</p></li>
+<li><p>Dimensions: qualitative columns, splits the data into groups</p></li>
+<li><p>Measures: quantitative columns, simple table calculations can be performed on them</p></li>
+<li><p>View Pane: where visualizations are built</p></li>
+<li><p>Pill: represents a column. Columns can be dragged an dropped from the data pane onto the view pane</p></li>
+<li><p>Card: represents a given aspect of the visual (ex, columns or rows). What you drop a card into, a pill must fall within it (a card can have multiple pills)</p></li>
+<li><p>Columns: when a pill is dragged and dropped into this card, it will show this column in a table format on the view pane (format can be changed using Show Me)</p></li>
+<li><p>Rows: when a pill is dragged and dropped into this card, it will show this row in a table format on the view pane (format can be changed using Show Me)</p></li>
+<li><p>Filters: allows you to filter the data. Pills can be dragged and dropped into the Filter Pane (right click on the filter and select Show Filter, it will appear on the right side of the screen). Filters can also be created using formulas</p></li>
+<li><p>Marks: data points found in the visualization. Used for visual formatting to adjust specific features (ex, colour, label, size)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="connect-to-datasource">
+<h2>Connect to DataSource<a class="headerlink" href="#connect-to-datasource" title="Permalink to this headline">¶</a></h2>
+<p><img alt="connect" src="https://miro.medium.com/max/299/0*AYSNcfli0-EuOhrT.png" /></p>
+<p>After your installation is complete, open Tableau Public. You will see a pane that looks like this on the left side of the window.</p>
+<p>To connect to our data, click on Microsoft Excel. Then, find the Excel spreadsheet we just created and open it.</p>
+<p>You will see a window that looks like this:</p>
+<p><img alt="loaded" src="https://miro.medium.com/max/700/0*YZVcx3TyiWqV603L.png" /></p>
+</div>
+<div class="section" id="data-analysis">
+<h2>Data Analysis<a class="headerlink" href="#data-analysis" title="Permalink to this headline">¶</a></h2>
+<p>To start analyzing the data, click on Sheet 1 at the bottom left corner of the screen.</p>
+<p>You will see the following screen come up:</p>
+<p><img alt="sheet1" src="https://miro.medium.com/max/700/0*pQNGOATc6An4kTgZ.png" /></p>
+<p>Pay careful attention to the data pane (on the left side of the screen). You will see the different variable names.</p>
+<p><img alt="data" src="https://miro.medium.com/max/258/0*aBhufasoEknZF3V4.png" /></p>
+<p>There are two things you need to know about the way Tableau classifies variables:</p>
+<div class="section" id="data-type">
+<h3>Data Type<a class="headerlink" href="#data-type" title="Permalink to this headline">¶</a></h3>
+<p>Firstly, Tableau assigns each variable a data type — String, DateTime, Decimal, etc.</p>
+<p>It is important to take a look at each variable and ensure that the data type is correct since it is possible for Tableau to get it wrong ( For example, Tableau could incorrectly classify a Datetime object as a String).</p>
+<p>In this case, however, Tableau has seemed to have assigned the correct data type to each variable. We do not need to make any changes here.</p>
+</div>
+<div class="section" id="measures-and-dimensions">
+<h3>Measures and Dimensions<a class="headerlink" href="#measures-and-dimensions" title="Permalink to this headline">¶</a></h3>
+<p>Tableau also classifies variables into <strong>measures</strong> and <strong>dimensions</strong>.</p>
+<p>Measures are types of variables that can be aggregated, or used for mathematical operations.</p>
+<p>Dimensions are fields that cannot be aggregated.</p>
+<p>You can think of measures as continuous variables, and dimensions as discrete variables (refer to the first step of the tutorial if you dont remember the difference).</p>
+<p>Lets take a look at the data pane again:</p>
+<p><img alt="data" src="https://miro.medium.com/max/258/0*aBhufasoEknZF3V4.png" /></p>
+<p>The variables at the top half of the pane, such as Cabin and Embarked are classified as <strong>dimensions</strong>.</p>
+<p>Variables in the bottom half, such as Age and Fare are classified as <strong>measures</strong>.</p>
+<p>It is possible for Tableau to incorrectly assign a variable as a dimension or a measure. In this case, there are two instances where Tableau has done so. We will need to re-define these variables.</p>
+<p>We will take a look at the data set again to identify the incorrectly defined variables.</p>
+<p><img alt="data" src="https://miro.medium.com/max/700/0*batDNQLN8r963qHZ.png" /></p>
+<p>The variables <strong>Pclass</strong> and <strong>Survived</strong> were classified as measures or continuous variables.</p>
+<p>However, these variables are discrete. Although they are numerical, they represent a category and not some sort of quantity.</p>
+<p>For example, take a look at the variable <em>Survived</em>. A value of 1 indicates that a person survived the Titanic, and a value of 0 indicates they didnt. This is a categorical variable.</p>
+<p>We need to change these incorrectly defined variables before we start visualizing the data.</p>
+<p>To do this, you just have to drag and drop. Click on the incorrectly defined variable and drag it up to the <strong>dimension</strong> section of the pane.</p>
+<p>Heres what it should look like when youre done:</p>
+<p><img alt="data" src="https://miro.medium.com/max/259/0*wSfovTMFlYU77VQO.png" /></p>
+<p>There are only four variables in the <strong>measure</strong> section, and everything else is classified as a dimension.</p>
+<p>Now, we can start with the visualization process.</p>
+</div>
+</div>
+<div class="section" id="data-visualization">
+<h2>Data Visualization<a class="headerlink" href="#data-visualization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="histograms">
+<h3>Histograms<a class="headerlink" href="#histograms" title="Permalink to this headline">¶</a></h3>
+<p>We will start by visualizing one variable. When visualizing the spread of one numeric variable in a data set, a histogram is used.</p>
+<p>First, we will visualize the distribution of the variable <em>Age</em>.</p>
+<p>In order to do so, we will first need to create bins or intervals of the age group:</p>
+<p><img alt="data" src="https://miro.medium.com/max/385/1*N4Mnc3znXmlja-rcP6frcQ.png" />
+<img alt="data" src="https://miro.medium.com/max/461/0*otKTpU2pIzB8XoQX.png" /></p>
+<p>Choose a bin size of 10, and click OK.</p>
+<p>The variable <strong>Age (bin)</strong> should appear on your data pane:</p>
+<p><img alt="data" src="https://miro.medium.com/max/262/0*XYkZ3nz9Ubk-8Xum.png" /></p>
+<p>To visualize the age group we just created, drag the <strong>Age (bin)</strong> variable to the Columns pane at the top of the screen. Then, drag the <strong>train(Count) OR worksheet(Count)</strong> variable to the Rows pane:</p>
+<p><img alt="data" src="https://miro.medium.com/max/700/0*hMFxj_FIcaQqqqTo.png" /></p>
+<p>After you do this, you will see a histogram like the one below:</p>
+<p><img alt="data" src="https://miro.medium.com/max/700/0*lwIqz1trRqlNoYSq.png" /></p>
+<p>This is a good, clear visualization of the age distribution in our data set. However, it can be improved.</p>
+<p>If you look closely, you will notice the value <strong>Null</strong> on the X-axis.</p>
+<p>To remove the null values:</p>
+<ul class="simple">
+<li><p>Click on the drop-down near <strong>Age (bin)</strong>, and click on <strong>Show Filter</strong>.</p></li>
+<li><p>Untick the checkmark next to <strong>Null</strong>, and you will no longer see null values in your histogram</p></li>
+</ul>
+<p><img alt="data" src="https://miro.medium.com/max/621/0*avA3Sr26RPwMDMFp.png" /></p>
+<p>If you want to change the colors of the bins, drag the Age (bins) variable to the Color button in the Marks card:</p>
+<p><img alt="data" src="https://miro.medium.com/max/194/0*AAAqmcqZXuk26rPi.png" /></p>
+<p>Then, click on Color -&gt; Edit Colors to choose a color palette:</p>
+<p><img alt="data" src="https://miro.medium.com/max/340/1*jDornhXnC3PeWrph9nNsSw.png" /></p>
+<p>Select a color you like, click on Assign Palette, and click OK. You will now have a histogram with the colors you chose:</p>
+<p><img alt="data" src="https://miro.medium.com/max/660/0*JCkHZM732dIE5nDc.png" /></p>
+<blockquote>
+<div><p>Similarly, we can now visualize the variable <strong>Fare</strong>.</p>
+</div></blockquote>
+<p>You can do it yourself this time for passenger fares. This time, use bin size of 30.</p>
+<p><img alt="data" src="https://miro.medium.com/max/700/0*gq9Avs3XgzQ_X1Bl.png" /></p>
+</div>
+<div class="section" id="count-plots">
+<h3>Count Plots<a class="headerlink" href="#count-plots" title="Permalink to this headline">¶</a></h3>
+<p>Similar to the histograms we created for the variables <strong>Age</strong>, and <strong>Fare</strong>, we can create count plots for categorical variables.</p>
+<p>First, we will visualize the counts of the variable <strong>Survived</strong>.</p>
+<blockquote>
+<div><p>Note: Remove the variable Age (bin) from the Columns section and the marks card. You will have to do this each time you want to create a new visualization.</p>
+</div></blockquote>
+<p>Just drag the variable <strong>Survived</strong> to the Columns section and the variable <strong>train(Count)</strong> to the Rows section.</p>
+<p>Then, drag the variable <strong>Survived</strong> to the Color button in the Marks card, and choose a color palette:</p>
+<p><img alt="data" src="https://miro.medium.com/max/407/0*lIzFqgQkk_PStuZ5.png" /></p>
+<p><img alt="data" src="https://miro.medium.com/max/194/0*KK5ZrRexb_KZe7BU.png" /></p>
+<p>Heres how the graph will look:</p>
+<p><img alt="data" src="https://miro.medium.com/max/449/0*zPuMWiwzQghIxSLf.png" /></p>
+<blockquote>
+<div><p>Similarly, we can now visualize the variable <strong>Pclass</strong>.</p>
+</div></blockquote>
+<p>Follow the same steps as before, and you should get a visualization that looks like this:</p>
+<p><img alt="data" src="https://miro.medium.com/max/568/0*2q1JhNU6SC1gkraH.png" /></p>
+</div>
+<div class="section" id="bar-chart">
+<h3>Bar Chart<a class="headerlink" href="#bar-chart" title="Permalink to this headline">¶</a></h3>
+<p>Were female passengers more likely to survive the Titanic than male passengers?</p>
+<p>To answer this question, two variables — <strong>Survived</strong> and <strong>Sex</strong> need to be visualized in a count plot. Based on the type of insight you want to get, you can color this by either variable:</p>
+<p><img alt="data" src="https://miro.medium.com/max/580/0*F_DG9IlgzRZH43CB.png" /></p>
+<p><img alt="data" src="https://miro.medium.com/max/195/0*Chg8H3jHfQ53cIkQ.png" /></p>
+<p>The resulting plot will be something like this:</p>
+<p><img alt="data" src="https://miro.medium.com/max/649/0*nWslgNTnWBGHd2fi.png" /></p>
+<p>By just looking at this graph, we can find a correlation — female passengers did seem more likely to survive the Titanic than male passengers.</p>
+</div>
+<div class="section" id="tableaus-marks-card">
+<h3>Tableau’s Marks Card<a class="headerlink" href="#tableaus-marks-card" title="Permalink to this headline">¶</a></h3>
+<p>Before moving on to the next visualization, you need to know about an important feature of Tableau — the marks card.</p>
+<p><img alt="data" src="https://miro.medium.com/max/264/0*qIBx_urAVYDPMGMj.png" /></p>
+<p>Click on the <strong>Show Me</strong> button on the top right corner of the page, and you can find the marks card. Here, you can see different types of charts.</p>
+<p>Tableau allows you to play around with different types of graphs to visualize the same data — there are bubble charts, tree maps, box plots, etc.</p>
+<p>You can take a look at some of these, and spend some time creating different charts.</p>
+<p>However, be careful when using these to visualize your data. Some of these graphs may look pretty but aren’t necessarily the best visualization practices.</p>
+<p>Using charts that are too sophisticated may make it difficult for others to read and interpret, so proceed with caution.</p>
+</div>
+<div class="section" id="stacked-chart">
+<h3>Stacked Chart<a class="headerlink" href="#stacked-chart" title="Permalink to this headline">¶</a></h3>
+<p>An alternative way to visualize the <strong>Sex</strong> and <strong>Survived</strong> variables above is to use a stacked chart.</p>
+<p><img alt="data" src="https://miro.medium.com/max/269/1*KeUjb3Xz0NEaIOnUXMwfHA.png" /></p>
+<p>Click on the card that looks like a stacked bar chart.</p>
+<p>You should see a graph that looks like this. The bars for the variable <strong>Sex</strong> are no longer visualized side by side. Instead, they are stacked on top of each other.</p>
+<p><img alt="data" src="https://miro.medium.com/max/427/0*yxQLhrNGNlLMpqtJ.png" /></p>
+</div>
+<div class="section" id="more-visualizations">
+<h3>More Visualizations<a class="headerlink" href="#more-visualizations" title="Permalink to this headline">¶</a></h3>
+<p>Applying what we have learned above, we can create visualizations to find answers to the following data questions:</p>
+<p><strong>Did the passenger class a person was in have any impact on whether they survived the Titanic?</strong></p>
+<p><img alt="data" src="https://miro.medium.com/max/700/0*XtK1bKmchQDb3-99.png" /></p>
+<p>It looks like passengers in the third class were far less likely to survive than passengers of any other class.</p>
+<p><strong>Did the port the passenger embarked from have any impact on their survival?</strong></p>
+<p><img alt="data" src="https://miro.medium.com/max/700/0*ZZusXvWeKK5Ty76r.png" /></p>
+<p>There appears to be no apparent relationship between the variables <strong>Embarked</strong> and <strong>Survived</strong>.</p>
+<p><strong>Were younger passengers more likely to survive the Titanic?</strong></p>
+<p>Note: To answer this question, you can use the variable <strong>Age</strong> or <strong>Age (Bin)</strong>.</p>
+<p><img alt="data" src="https://miro.medium.com/max/700/0*ZQZAMpiE8ASBvzA-.png" /></p>
+<p><img alt="data" src="https://miro.medium.com/max/700/0*FerdqYRA5vrxAUXT.png" /></p>
+<p>The age distribution of passengers who survived the Titanic is similar to the age distribution of passengers who didn’t. There seems to be little to no correlation between age and survival.</p>
+<p><strong>Were passengers who paid higher fare prices more likely to survive the Titanic?</strong></p>
+<p><img alt="data" src="https://miro.medium.com/max/700/0*ulSZiQhflOxF4Mbc.png" /></p>
+<p>It can be observed that passengers who paid higher fare prices ($50 and above) have higher survival rates than passengers who bought cheaper tickets.</p>
+</div>
+<div class="section" id="visualizing-multiple-variables">
+<h3>Visualizing Multiple Variables<a class="headerlink" href="#visualizing-multiple-variables" title="Permalink to this headline">¶</a></h3>
+<p>Tableau is a great tool to use when you need to visualize the relationship between more than two variables at once because there are just so many ways to do it.</p>
+<p>To show you an example, I will visualize the relationship between the variables <strong>Age</strong>, <strong>Sex</strong>, and <strong>Survived</strong>.</p>
+<p><img alt="data" src="https://miro.medium.com/max/560/0*baP26uR1zfpxHGuA.png" /></p>
+<p><img alt="data" src="https://miro.medium.com/max/196/0*or2Xau4vJThAxyGC.png" /></p>
+<p><img alt="data" src="https://miro.medium.com/max/700/0*Se48RGxrlDFfgn4B.png" /></p>
+<p>There are many different ways you can do this, depending on the variable you want to stand out.</p>
+<p>You can re-position the graph and try coloring different variables, and see what answers your data question best.</p>
+<p>Sometimes, visualizing the same variables in many different ways can give you an entirely new perspective.</p>
+<p>I will now visualize a few more variables to find the relationship between them, and you should try these on your own.</p>
+<p><strong>Fare</strong>, <strong>Sex</strong>, and <strong>Survived</strong></p>
+<p><img alt="data" src="https://miro.medium.com/max/700/0*kxKt1ggEZNb6cnjg.png" /></p>
+<p><strong>Fare</strong>, <strong>Pclass</strong>, <strong>Survived</strong></p>
+<p><img alt="data" src="https://miro.medium.com/max/700/0*AZhwloj2JkC_BNuC.png" /></p>
+<p><strong>Age</strong>, <strong>Pclass</strong>, <strong>Survived</strong></p>
+<p><img alt="data" src="https://miro.medium.com/max/700/0*8jN4ivT9a47yC0Gu.png" /></p>
+</div>
+</div>
+<div class="section" id="marks-tooltips-and-annotations">
+<h2>Marks, Tooltips, and Annotations<a class="headerlink" href="#marks-tooltips-and-annotations" title="Permalink to this headline">¶</a></h2>
+<p>Using marks, tooltips, and annotations can make it easier for people to read your graph.</p>
+<p>However, you should use these wisely to avoid cluttering your graph with too much information.</p>
+<div class="section" id="tooltips">
+<h3>Tooltips<a class="headerlink" href="#tooltips" title="Permalink to this headline">¶</a></h3>
+<p>Tooltips are the details that appear when you hover your pointer over the visualization:</p>
+<p><img alt="data" src="https://miro.medium.com/max/470/1*TdGtFZ-onEDnJl8JBGt1oA.png" /></p>
+<p>You can choose to add information to your tooltip, without adding it to the visualization.</p>
+<p>Re-create the survival count chart above. Then, all you need to do is drag the variable you want to add to the Tooltip button in the Marks card:</p>
+<p><img alt="data" src="https://miro.medium.com/max/197/0*C_2g-jnSFPEblGzR.png" /></p>
+<p>This way, every time someone hovers a pointer over your graph, they will be able to see this additional information:</p>
+<p><img alt="data" src="https://miro.medium.com/max/458/1*SPKEmQiv1Zwn7lcP4lofeg.png" /></p>
+<p>As you can see in the chart above, the tooltip has information on the passenger’s sex, which is not displayed in the graph.</p>
+<blockquote>
+<div><p>I would not recommend using tooltips this way. When visualizing categorical variables, it is always better to use a different hue or a separate column. I only created this to show you how you can use tooltips in the future.</p>
+</div></blockquote>
+</div>
+<div class="section" id="annotations">
+<h3>Annotations<a class="headerlink" href="#annotations" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to display the information you see on the tooltip as an annotation on your graph.</p>
+<p>This way, you can call out a specific mark or point on your graph and get readers to see it easily.</p>
+<p>This is especially useful when visualizing location data in a map because you get to annotate and draw attention to a particular area.</p>
+<p>Here’s how to annotate your graph:</p>
+<ul class="simple">
+<li><p>Right-click on the histogram and click on Annotate -&gt; Mark</p></li>
+</ul>
+<p><img alt="data" src="https://miro.medium.com/max/456/1*STETpzZjK6v-WdgWZnl3Xw.png" /></p>
+<ul class="simple">
+<li><p>A screen like this will appear. You can choose to remove marks you don’t want, and click <strong>OK</strong>.</p></li>
+</ul>
+<p><img alt="data" src="https://miro.medium.com/max/560/0*nXpXMI4ziF08RI0z.png" /></p>
+<p>You will now see the annotation appear like this:</p>
+<p><img alt="data" src="https://miro.medium.com/max/640/0*0Goo_TvV22tJdfx-.png" /></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./self\tableau"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="tableau.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Tableau</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="intro2.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tableau Dashboard</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By FTDS Curriculum Team<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
