@@ -35,6 +35,11 @@ parts:
     - file: self/sqlself/sql_practice1
     - file: self/sqlself/sql_practice2
     - file: self/sqlself/sql_practice3
+  - file: self/tableau/tableau
+    sections:
+    - file: self/tableau/intro1
+    - file: self/tableau/intro2
+    - file: self/tableau/intro3
     
 - caption: Job-Related Prep
   chapters:

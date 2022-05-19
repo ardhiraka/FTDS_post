@@ -1,0 +1,616 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tableau Dashboard &#8212; FTDS Post Study Materials</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Tableau Dashboard Practice" href="intro3.html" />
+    <link rel="prev" title="Tableau Introduction" href="intro1.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">FTDS Post Study Materials</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Hacktiv8 Data Science Fulltime Program Post Study Materials
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Wiki
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../wiki/statistics/stats.html">
+   Statistics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/statistics/prob.html">
+     Probability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/statistics/desc.html">
+     Descriptive
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/statistics/inf.html">
+     Inferential
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../wiki/business/business.html">
+   Business Accumen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/business/metrics.html">
+     Metrics and Formulas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/business/term.html">
+     Terminologies
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../wiki/sql/sql_intro.html">
+   SQL
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/sql/sql_term.html">
+     Terminologies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/sql/sql_ddl.html">
+     DDL
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/sql/sql_dml.html">
+     DML
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Self Learning
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../python/python.html">
+   Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python/exception.html">
+     Exceptions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../sqlself/sqlself.html">
+   SQL
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sqlself/sql_practice1.html">
+     SQLite Practice 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sqlself/sql_practice2.html">
+     MySQL Practice 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sqlself/sql_practice3.html">
+     MySQL Practice 3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="tableau.html">
+   Tableau
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="intro1.html">
+     Tableau Introduction
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Tableau Dashboard
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="intro3.html">
+     Tableau Dashboard Practice
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Job-Related Prep
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../job/DA/da_intro.html">
+   Data Analyst
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../job/DA/da1.html">
+     Data Analyst
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../refs.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/self/tableau/intro2.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset-introduction">
+   Dataset Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizing-the-data">
+   Visualizing the Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizing-the-profit">
+     Visualizing the Profit
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizing-the-popularity">
+     Visualizing the Popularity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizing-the-sales">
+     Visualizing the Sales
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-dashboard">
+   Making Dashboard
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Tableau Dashboard</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset-introduction">
+   Dataset Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizing-the-data">
+   Visualizing the Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizing-the-profit">
+     Visualizing the Profit
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizing-the-popularity">
+     Visualizing the Popularity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizing-the-sales">
+     Visualizing the Sales
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-dashboard">
+   Making Dashboard
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="tableau-dashboard">
+<h1>Tableau Dashboard<a class="headerlink" href="#tableau-dashboard" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="dataset-introduction">
+<h2>Dataset Introduction<a class="headerlink" href="#dataset-introduction" title="Permalink to this headline">¶</a></h2>
+<p>The data set we will be using in this tutorial is Superstore Sample from Tableu Public Dataset. You can download from <a class="reference external" href="https://github.com/ardhiraka/PFDS_sources/raw/master/sample_-_superstore.xls">here</a>.</p>
+<p>After you load the data, on the left hand side of the page you can see that there are three different datasets, <strong>Orders</strong>, <strong>People</strong> and <strong>Returns</strong>. To view a dataset, you simply drag and drop a dataset from the left into the top middle of the screen that says <em>Drag sheets here</em>. The first dataset we will look at is the Orders table.</p>
+<p><img alt="tableau" src="https://miro.medium.com/max/1400/1*YlnBxL7lL-e4O5XtJ-EXyw.png" /></p>
+<p>You can then preview the dataset where we can see information on individual orders. The dataset columns include <strong>Customer Name, City, Product Name, Sales and Profit.</strong></p>
+<p>Now that we have previewed our data, we can begin our analysis by pressing <strong>Sheet 1</strong> on the <strong>bottom left</strong> of the page which will open up a worksheet that looks like the image below.</p>
+<p><img alt="tableau" src="https://miro.medium.com/max/1400/1*7DMYqaS30YLqnraR67MoXg.png" /></p>
+</div>
+<div class="section" id="visualizing-the-data">
+<h2>Visualizing the Data<a class="headerlink" href="#visualizing-the-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="visualizing-the-profit">
+<h3>Visualizing the Profit<a class="headerlink" href="#visualizing-the-profit" title="Permalink to this headline">¶</a></h3>
+<p>On the left hand side of the page we can see all of the columns from the <strong>Order</strong> dataset.</p>
+<p>To get an idea of how our data can be visualized we will start by simply clicking on the <strong>State</strong> field under the <strong>Dimensions</strong> header and <strong>drag it to the center of the sheet</strong> that says Drop field here.</p>
+<p><img alt="tableau" src="https://miro.medium.com/max/1400/1*__-KTPyJqs9Q0ai1KElDIA.png" /></p>
+<p>We now see the States that are included in our Orders table and that they are marked by a blue dot. If it is marked in blue that means there has been at least one order from that state.</p>
+<p>Right now all the blue dots are the same size. What if we want to see which states make the most profitable orders?</p>
+<p>To do this click on <strong>Profit</strong> underneath the Measures header and <strong>drag it to the center</strong> of the worksheet.</p>
+<p><img alt="tableau" src="https://miro.medium.com/max/1400/1*CnyiZuZH9p7hbUA1A6dAXw.png" /></p>
+<p>We can now see that the different dots are different sizes and correspond to how profitable each state is. We can quickly gain some insights just by glancing at this visualization like, New York and California and very profitable and Texas and Ohio are not.</p>
+<p>This type of visualization could be helpful for a company deciding where they should focus their marketing efforts. If you hover your mouse over any state, you can also see what the profit was in that particular state.</p>
+<p>Right now we can only see that some states are making more profit than others and some are making less of a profit. What if we wanted to easily see which States were bringing in a profit and which States were losing money?</p>
+<p>We can do this by adding colors to our visualization.</p>
+<p>To do this, again select <strong>Profit</strong> from under the Measures header on the left hand side of the page and drag it over the icon that says <strong>Color</strong> in the <strong>Marks box</strong>. Now the dots on the map are different colors.</p>
+<p>You can change these colors by clicking on the Color icon again and select <strong>Edit Colors…</strong>. There you will see a drop down for different Palette options. For this tutorial We chose Red-Green Diverging and selected the box that says Use Full Color Range but feel free to chose whatever color palette you prefer.</p>
+<p><img alt="tableau" src="https://miro.medium.com/max/1400/1*qzzeQr271hKwKhumg_LzMg.png" /></p>
+<p>Now we can see that the greener and larger a dot is over a state, the more profitable that state is. We can also see that the redder and smaller a dot is over a state, the more money that state is losing. I chose the Red-Green Diverging color palette as it makes it very easy for someone else to come in and understand the data. If a dot is red over a state they are losing money, if a dot is green over a state they are making a profit.</p>
+<p>Before we make another data visualization make sure to rename this worksheet by selecting the button on the bottom left of the page that says <strong>Sheet 1</strong> and rename it to <strong>Profitability per State</strong>.</p>
+</div>
+<div class="section" id="visualizing-the-popularity">
+<h3>Visualizing the Popularity<a class="headerlink" href="#visualizing-the-popularity" title="Permalink to this headline">¶</a></h3>
+<p>We can create a new worksheet, by selecting the tab to the right of the newly named <strong>Profitability per State</strong> tab on the bottom left hand side of the screen.</p>
+<p>Now we will make a visualization that will show us which products are the most popular. To do this we are going to select <strong>Product Name</strong> and drag it into the middle of our sheet like we did before with out last worksheet.</p>
+<p><img alt="tableau" src="https://miro.medium.com/max/1400/1*BZqA2dsk5ISJyyg1FDcIcg.png" /></p>
+<p>Next to each product name we see there is another column and every value of that column says <strong>Abc</strong>.</p>
+<p>To view the quantity each item was ordered we will <strong>drag Quantity</strong> from under the Measures header <strong>right to the column</strong> that contains <strong>Abc</strong> for every value.</p>
+<p><img alt="tableau" src="https://miro.medium.com/max/1400/1*DUFDcvezyy7fqOHtbdN6Lg.png" /></p>
+<p>We can now see the order quantity for each product right next to the products name.</p>
+<p>There are a lot of products and it is a long list to go through. To make it easier to see which products are selling the most and which are selling the least we can sort our data by showing the products with the highest order quantity at the top of our list and products with the lowest order quantity at the bottom of our list.</p>
+<p>To do this, hover your mouse over the sheet where it says <strong>Product Name</strong>. A drop down option should come up that allows you to sort the data by either Alphabetic or SUM(Quantity). Select <strong>SUM(QUANTITY)</strong>.</p>
+<p><img alt="tableau" src="https://miro.medium.com/max/1400/1*9iUuZOaEwUk571WpkBiL6w.png" /></p>
+<p>Now we can easily see which items are bought the most and which are bought the least.</p>
+<p><img alt="tableau" src="https://miro.medium.com/max/1400/1*LCI3ij_F5B24XSxhv2BXAg.png" /></p>
+<p>We have a nice list but now we want to visualize this data. To do that select on the <strong>horizontal bar graph</strong> on the left hand side of the page. Go ahead and change the color of the graph just as we did before as well as the sheet name from <strong>Sheet 2</strong> to something like <strong>Product Quantity Count</strong>.</p>
+<p><img alt="tableau" src="https://miro.medium.com/max/1400/1*vBKYm2qXf1oOoLM9tmtSFw.png" /></p>
+</div>
+<div class="section" id="visualizing-the-sales">
+<h3>Visualizing the Sales<a class="headerlink" href="#visualizing-the-sales" title="Permalink to this headline">¶</a></h3>
+<p>We’ll make one last data visualization before we make our dashboard.</p>
+<p>Create a new worksheet just by clicking on the new worksheet icon at the bottom of the page.</p>
+<p>This time we will look at sales over time. To do this we’re going to select <strong>Order Date</strong> from under the <strong>Dimensions</strong> header and drag it to the center of our worksheet.</p>
+<p>Next select <strong>Sales</strong> and drop it in the column next to <strong>Order Date</strong>. This should be an empty column where <strong>Abc</strong> is listed as every value of that column.</p>
+<p><img alt="tableau" src="https://miro.medium.com/max/1400/1*gCUY4gsb54FAivOXNu65-g.png" /></p>
+<p>We can now see the amount of sales this company produced every year since 2016.</p>
+<p>This is nice but what if we want to see the sales of every quarter.</p>
+<p>To do this select <strong>YEAR(Order Date)</strong> where it is listed in <strong>Rows</strong>. A drop down option will come up that will allow you to break the data up in Years, Quarters, Months and Days, select on <strong>Quarter</strong>. Quarter list will appear twice in this drop down, <strong>select the second Quarter</strong> you see in that list.</p>
+<p><img alt="tableau" src="https://miro.medium.com/max/1400/1*1SoEwZrfZbLgoP1DlXgChQ.png" /></p>
+<p>We can now see the sales for every quarter but it is not visually appealing.</p>
+<p><img alt="tableau" src="https://miro.medium.com/max/1400/1*if5YSHt53ixHUNeAzxFAtw.png" /></p>
+<p>To easily view sales we’ll try using the <strong>lines(continuous)</strong> graph option on the left.</p>
+<p><img alt="tableau" src="https://miro.medium.com/max/1400/1*YGhqPalvw8HLBnVUgIHJ9Q.png" /></p>
+<p>Now it is easy to see how Sales have changed over time. We can also see a pattern of highs and peaks. This is much easier to see through this line graph than through the list of numbers we saw before.</p>
+<p>We can now rename this worksheet to <strong>Sales Over Time</strong> and get started with our dashboard.</p>
+</div>
+</div>
+<div class="section" id="making-dashboard">
+<h2>Making Dashboard<a class="headerlink" href="#making-dashboard" title="Permalink to this headline">¶</a></h2>
+<p>To create a new dashboard you can select the icon on the bottom left of a screen that looks like a window with a <strong>+</strong> over it. If you hover your mouse over the icon it should say <strong>New Dashboard</strong>. You should be brought to the page shown below.</p>
+<p><img alt="tableau" src="https://miro.medium.com/max/1400/1*Xa7ctN6uHGVz1kv75tfm1A.png" /></p>
+<p>On the left hand side we can see the names of our worksheets we created. Start by clicking and dragging <strong>Profitability Per State</strong> from the left to the center of the screen where it says <strong>Drop sheets here</strong>.</p>
+<p>Drag over the other two worksheets. You can resize each image as you wish. Your dashboard may look something like this after you resize your visualizations.</p>
+<p><img alt="tableau" src="https://miro.medium.com/max/1400/1*ZaomPITh229Rbx8vSNhaSw.png" /></p>
+<p>You can also remove the legends next to the top map visualization by simply clicking on each legend and then pressing the <strong>X</strong> in the top right corner.</p>
+<p>Next we are going to filter our entire dashboard by state. To do this, click on the top of the map visual and press the third button down on the right hand side, it should say <strong>Filter</strong> when you hold your mouse above it.</p>
+<p><img alt="tableau" src="https://miro.medium.com/max/1400/1*Cyjk5AeumWe62R5bbRXbAg.png" /></p>
+<p>Now, when you click on a state on the top map, each of the two visualizations below will show data from just that state.</p>
+<p>Below, I had selected on California, you can see below that the top products that were sold have changed, it is only showing the Product Quantity Count from California.</p>
+<p>The bottom graph also only shows Sales Over Time information from California. This feature allows us to make the dashboard more interactive. If you click the map again you will go back to the default dashboard, where data from all States is included.</p>
+<p><img alt="tableau" src="https://miro.medium.com/max/1400/1*E97H3Sjgyc7V_D4hZOocxg.png" /></p>
+<p>Now we will add a title by clicking on <strong>Text</strong> under Objects on the left hand side of the page.</p>
+<p>Drag and drop <strong>Text</strong> to the top of the page or where ever you prefer to have the title for the dashboard. You will have to resize the text box so your graphs are still easily visible.</p>
+<p><img alt="tableau" src="../../_images/11.png" /></p>
+<p>After giving your dashboard a title, make sure to rename the tab from <strong>Dashboard 1</strong> to something like <strong>Superstore Dashboard</strong>.</p>
+<p>This is a very simple dashboard and I encourage you to play around a bit with all the features. For this tutorial we will simply leave the dashboard as is and move on to publishing the dashboard.</p>
+<p>Now you can go to the top left of your computer where it says <strong>File</strong> and select <strong>Save to Tableau Public As…</strong></p>
+<p>You will then be asked to sign into the Tableau Public account you had created. Once you sign in, it will ask you to provide a name to save the dashboard under. Once you have done that a webpage will pop up with your dashboard on your Tableau Public profile.</p>
+<p>You have now created your first Tableau Public dashboard! You can share your dashboard with others by embedding it into your website or sending a sharable link.</p>
+<p><img alt="tableau" src="https://miro.medium.com/max/1400/1*7HEUW2wqVj5NrU4iUAusRQ.png" /></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./self\tableau"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="intro1.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Tableau Introduction</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="intro3.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tableau Dashboard Practice</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By FTDS Curriculum Team<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
