@@ -8,14 +8,14 @@ title: FTDS Post Study Materials
 parts:
 - caption: Wiki
   chapters:
-  - file: wiki/statistics/stats
-    sections:
-    - file: wiki/statistics/prob
-    - file: wiki/statistics/desc
-    - file: wiki/statistics/inf
+  # - file: wiki/statistics/stats
+  #   sections:
+  #   - file: wiki/statistics/prob
+  #   - file: wiki/statistics/desc
+  #   - file: wiki/statistics/inf
   - file: wiki/business/business
     sections:
-    - file: wiki/business/metrics
+    # - file: wiki/business/metrics
     - file: wiki/business/term
   - file: wiki/sql/sql_intro
     sections:
@@ -27,9 +27,9 @@ parts:
 
 - caption: Self Learning
   chapters:
-  - file: self/python/python
-    sections:
-    - file: self/python/exception
+  # - file: self/python/python
+  #   sections:
+  #   - file: self/python/exception
   - file: self/sqlself/sqlself
     sections:
     - file: self/sqlself/sql_practice1
