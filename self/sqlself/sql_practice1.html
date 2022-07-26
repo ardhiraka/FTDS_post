@@ -181,6 +181,16 @@ const thebe_selector_output = ".output, .cell_output"
      MySQL Practice 3
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sql_practice4.html">
+     Statistic Descriptive in SQL
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sql_practice5.html">
+     Pivoting Data in SQL
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -470,21 +480,21 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>SELECT * selects every column in the table.</p></li>
 <li><p>LIMIT 50 means we only get the first 50 rows.</p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
-<span class="k">LIMIT</span><span class="w"> </span><span class="mi">50</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">avocado</span>
+<span class="k">LIMIT</span> <span class="mi">50</span>
 </pre></div>
 </div>
 <p>SELECT, WHERE, ORDER BY</p>
 <p>We’re going to tackle these in one query.</p>
 <p>The order of functions is essential in SQL. The order shown in these queries is generally the only order that works</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span>
-<span class="w">   </span><span class="nb">date</span><span class="p">,</span><span class="w"></span>
-<span class="w">   </span><span class="n">avgprice</span><span class="p">,</span><span class="w"></span>
-<span class="w">   </span><span class="n">totalvol</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">totalvol</span><span class="w"> </span><span class="k">DESC</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> 
+   <span class="nb">date</span><span class="p">,</span>
+   <span class="n">avgprice</span><span class="p">,</span>
+   <span class="n">totalvol</span>
+<span class="k">FROM</span> <span class="n">avocado</span>
+<span class="k">WHERE</span> <span class="k">type</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">totalvol</span> <span class="k">DESC</span>
 </pre></div>
 </div>
 <p>SELECT</p>
@@ -519,9 +529,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>We combine LIKE with a percent symbol to specify anything after or anything before.</p></li>
 <li><p>The below query selects anything starting with ‘A’. We could put the percent sign before to find anything ending with ‘A’ (case-sensitive) or on both sides to find anything containing this character.</p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avoregion</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">region</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;A%&#39;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> 
+<span class="k">FROM</span> <span class="n">avoregion</span>
+<span class="k">WHERE</span> <span class="n">region</span> <span class="k">LIKE</span> <span class="s1">&#39;A%&#39;</span>
 </pre></div>
 </div>
 <p>Filtering with a list</p>
@@ -530,20 +540,20 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>In the example below, we treat date as a string and pass 2 dates to filter.</p></li>
 <li><p>We also combine this with a regionid filter.</p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2015-01-04&#39;</span><span class="p">,</span><span class="s1">&#39;2015-01-11&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="k">AND</span><span class="w"> </span><span class="n">regionid</span><span class="o">=</span><span class="mi">1</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">avocado</span>
+<span class="k">WHERE</span> <span class="nb">date</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">&#39;2015-01-04&#39;</span><span class="p">,</span><span class="s1">&#39;2015-01-11&#39;</span><span class="p">)</span>
+<span class="k">AND</span> <span class="n">regionid</span><span class="o">=</span><span class="mi">1</span>
 </pre></div>
 </div>
 <p>Working with Strings and Dates</p>
 <p>Strings</p>
 <p>String and Date syntax can vary a lot depending on which database management system you are using. In general, most of the string and date operations you can do in Excel are transferable to SQL but with different syntax.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span>
-<span class="w">   </span><span class="k">UPPER</span><span class="p">(</span><span class="n">region</span><span class="p">)</span><span class="w"></span>
-<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SUBSTR</span><span class="p">(</span><span class="n">region</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="w"></span>
-<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SUBSTR</span><span class="p">(</span><span class="n">region</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avoregion</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> 
+   <span class="k">UPPER</span><span class="p">(</span><span class="n">region</span><span class="p">)</span>
+ <span class="p">,</span> <span class="n">SUBSTR</span><span class="p">(</span><span class="n">region</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+ <span class="p">,</span> <span class="n">SUBSTR</span><span class="p">(</span><span class="n">region</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">avoregion</span>
 </pre></div>
 </div>
 <p>UPPER</p>
@@ -560,16 +570,16 @@ const thebe_selector_output = ".output, .cell_output"
 <p>When working with dates, the key is to make sure your data has the correct data type; it should be stored as an actual date.</p>
 <p>If it isn’t you’ll need to either talk to your database administrator and get them to update the ‘create table’ statement to convert this.</p>
 <p>In SQLite we can’t work with dates as easily, but the Syntax below will work in Postgres.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">my_date</span><span class="p">,</span><span class="w"></span>
-<span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">year</span><span class="p">,</span><span class="w"></span>
-<span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">month</span><span class="p">,</span><span class="w"></span>
-<span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">day</span><span class="p">,</span><span class="w"></span>
-<span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;hour&#39;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">hour</span><span class="p">,</span><span class="w"></span>
-<span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;minute&#39;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">minute</span><span class="p">,</span><span class="w"></span>
-<span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;second&#39;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">second</span><span class="p">,</span><span class="w"></span>
-<span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;decade&#39;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">decade</span><span class="p">,</span><span class="w"></span>
-<span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;dow&#39;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">day_of_week</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="k">table_name</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">my_date</span><span class="p">,</span>
+ <span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;year&#39;</span> <span class="k">FROM</span> <span class="n">my_date</span><span class="p">)</span> <span class="k">AS</span> <span class="k">year</span><span class="p">,</span>
+ <span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;month&#39;</span> <span class="k">FROM</span> <span class="n">my_date</span><span class="p">)</span> <span class="k">AS</span> <span class="k">month</span><span class="p">,</span>
+ <span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;day&#39;</span> <span class="k">FROM</span> <span class="n">my_date</span><span class="p">)</span> <span class="k">AS</span> <span class="k">day</span><span class="p">,</span>
+ <span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;hour&#39;</span> <span class="k">FROM</span> <span class="n">my_date</span><span class="p">)</span> <span class="k">AS</span> <span class="n">hour</span><span class="p">,</span>
+ <span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;minute&#39;</span> <span class="k">FROM</span> <span class="n">my_date</span><span class="p">)</span> <span class="k">AS</span> <span class="k">minute</span><span class="p">,</span>
+ <span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;second&#39;</span> <span class="k">FROM</span> <span class="n">my_date</span><span class="p">)</span> <span class="k">AS</span> <span class="k">second</span><span class="p">,</span>
+ <span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;decade&#39;</span> <span class="k">FROM</span> <span class="n">my_date</span><span class="p">)</span> <span class="k">AS</span> <span class="n">decade</span><span class="p">,</span>
+ <span class="k">EXTRACT</span><span class="p">(</span><span class="s1">&#39;dow&#39;</span> <span class="k">FROM</span> <span class="n">my_date</span><span class="p">)</span> <span class="k">AS</span> <span class="n">day_of_week</span>
+<span class="k">FROM</span> <span class="k">table_name</span>
 </pre></div>
 </div>
 <p>If in Postgres, you can also use the DATE_PART function</p>
@@ -585,12 +595,12 @@ FROM table_name
 <h3>Aggregation — SUM, AVG, MIN, MAX, GROUP BY<a class="headerlink" href="#aggregation-sum-avg-min-max-group-by" title="Permalink to this headline">¶</a></h3>
 <p>Let’s aggregate the data using the type column. We have 2 types, which at the moment are called ‘1’ and ‘2’. We’ll find out what those mean later.
 The order is also very important here. The GROUP BY must go at the end, and if we are using a WHERE, this should go before the GROUP BY.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span>
-<span class="w">   </span><span class="k">type</span><span class="w"></span>
-<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">avgprice</span><span class="p">)</span><span class="w"></span>
-<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">totalvol</span><span class="p">)</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
-<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">type</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> 
+   <span class="k">type</span>
+ <span class="p">,</span> <span class="k">AVG</span><span class="p">(</span><span class="n">avgprice</span><span class="p">)</span>
+ <span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">totalvol</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">avocado</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="k">type</span>
 </pre></div>
 </div>
 <p>AVG</p>
@@ -610,13 +620,13 @@ SQL is performing the AVG or SUM calculation on all the rows within a group base
 <p>Filtering the underlying data means we actually filter the individual rows and not our summary table. See the example below.</p>
 <p>If we use WHERE, the AVG and SUM are now calculated using only rows with avgprice &gt; 1.5.</p>
 <p>Enter HAVING. This allows us to filter the aggregated rows after they’ve been calculated.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span>
-<span class="w">   </span><span class="k">type</span><span class="w"></span>
-<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">avgprice</span><span class="p">)</span><span class="w"></span>
-<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">totalvol</span><span class="p">)</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
-<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">type</span><span class="w"></span>
-<span class="k">HAVING</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">avgprice</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> 
+   <span class="k">type</span>
+ <span class="p">,</span> <span class="k">AVG</span><span class="p">(</span><span class="n">avgprice</span><span class="p">)</span>
+ <span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">totalvol</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">avocado</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="k">type</span>
+<span class="k">HAVING</span> <span class="k">AVG</span><span class="p">(</span><span class="n">avgprice</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span>
 </pre></div>
 </div>
 </div>
@@ -652,9 +662,9 @@ In order to understand joins, you should understand the basics of relational dat
 <p>You can use AND to join on multiple columns.</p>
 <p>JOIN in SQL</p>
 <p>We’ll just use left joins for the tutorial, but if you are following along, feel free to experiment with other join types.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
-<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">avotype</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">avocado</span><span class="p">.</span><span class="k">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avotype</span><span class="p">.</span><span class="n">typeid</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">avocado</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">avotype</span> <span class="k">ON</span> <span class="n">avocado</span><span class="p">.</span><span class="k">type</span> <span class="o">=</span> <span class="n">avotype</span><span class="p">.</span><span class="n">typeid</span>
 </pre></div>
 </div>
 <p>We now have the columns typeid and type from the avo_type table. Let’s select only the date, avgprice and type columns.</p>
@@ -662,25 +672,25 @@ In order to understand joins, you should understand the basics of relational dat
 <p>First, we’ve specified exactly which columns we’ll be using.</p>
 <p>Then, tables have been given aliases.</p>
 <p>We’ve called the avocados table ‘av’ and the avo_type table ‘avt’. We’ve also used these as an easy way to specify which columns to select. You’ll notice the type column is in both tables, so specifying which type we want is essential here.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span>
-<span class="w">   </span><span class="n">av</span><span class="p">.</span><span class="nb">date</span><span class="w"></span>
-<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">av</span><span class="p">.</span><span class="n">avgprice</span><span class="w"></span>
-<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">avt</span><span class="p">.</span><span class="k">type</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">av</span><span class="w"></span>
-<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">avotype</span><span class="w"> </span><span class="n">avt</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">av</span><span class="p">.</span><span class="k">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avt</span><span class="p">.</span><span class="n">typeid</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> 
+   <span class="n">av</span><span class="p">.</span><span class="nb">date</span>
+ <span class="p">,</span> <span class="n">av</span><span class="p">.</span><span class="n">avgprice</span>
+ <span class="p">,</span> <span class="n">avt</span><span class="p">.</span><span class="k">type</span>
+<span class="k">FROM</span> <span class="n">avocado</span> <span class="n">av</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">avotype</span> <span class="n">avt</span> <span class="k">ON</span> <span class="n">av</span><span class="p">.</span><span class="k">type</span> <span class="o">=</span> <span class="n">avt</span><span class="p">.</span><span class="n">typeid</span>
 </pre></div>
 </div>
 <p>UNION</p>
 <p>Unions are used when we want to put one table on top of another. It isn’t really applicable for the data we have in this example, but I’ll show the syntax anyway.</p>
 <p>In this query, we filter to type =1 and then use a union to stack this on top of a table for type !=1</p>
 <p>Note that we’ve renamed the sum column here but the UNION still stacks it as it uses the position of the column and not the column name.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">type</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">totalvol</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">totalvol</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">av</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"></span>
-<span class="k">UNION</span><span class="w"></span>
-<span class="k">SELECT</span><span class="w"> </span><span class="k">type</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">totalvol</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">t</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">av</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">type</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">totalvol</span><span class="p">)</span> <span class="k">as</span> <span class="n">totalvol</span>
+<span class="k">FROM</span> <span class="n">avocado</span> <span class="n">av</span>
+<span class="k">WHERE</span> <span class="k">type</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span>
+<span class="k">UNION</span>
+<span class="k">SELECT</span> <span class="k">type</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">totalvol</span><span class="p">)</span> <span class="k">as</span> <span class="n">t</span>
+<span class="k">FROM</span> <span class="n">avocado</span> <span class="n">av</span>
+<span class="k">WHERE</span> <span class="k">type</span> <span class="o">!=</span> <span class="s1">&#39;1&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -693,18 +703,18 @@ In order to understand joins, you should understand the basics of relational dat
 <h2>Advanced SQL<a class="headerlink" href="#advanced-sql" title="Permalink to this headline">¶</a></h2>
 <p>Exploring the Example Data</p>
 <p>Let’s take a quick look at the table before we filter it.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
-<span class="k">LIMIT</span><span class="w"> </span><span class="mi">50</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">avocado</span>
+<span class="k">LIMIT</span> <span class="mi">50</span>
 </pre></div>
 </div>
 <p>There are also 2 mapping tables in this dataset for type and regionid which map these numeric categories to their actual text.</p>
 <p>JOIN as a Filter</p>
 <p>By combining an INNER JOIN with a filter using AND, we can filter the table as we are joining it, providing a small performance boost over a regular join and WHERE filter. The is handy for big datasets but you’ll need to to know your data well as you may drop rows you didn’t intend to because this technique uses the INNER JOIN.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
-<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">avoregion</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
-<span class="k">AND</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Denver&#39;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">avocado</span> <span class="n">a</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">avoregion</span> <span class="n">b</span> <span class="k">ON</span> <span class="n">a</span><span class="p">.</span><span class="n">regionid</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">regionid</span>
+<span class="k">AND</span> <span class="n">b</span><span class="p">.</span><span class="n">region</span> <span class="o">=</span> <span class="s1">&#39;Denver&#39;</span>
 </pre></div>
 </div>
 <p>Self Joins</p>
@@ -714,16 +724,16 @@ In order to understand joins, you should understand the basics of relational dat
 <p>Inside the join, we’ve joined on date and regionid but we’ve used the does not equal operator (&lt;&gt;) to ensure we don’t join the same types together.</p>
 <p>The result is a single row with both types on it, instead of each appearing in separate rows.</p>
 <p>Please note, we do end up with duplicate data here as we have every combination of types. This could be avoided by filtering.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span>
-<span class="w">  </span><span class="n">a</span><span class="p">.</span><span class="nb">date</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">avo_a</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="k">type</span><span class="p">,</span><span class="w"> </span>
-<span class="w">  </span><span class="n">b</span><span class="p">.</span><span class="n">avo_a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="k">type</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
-<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">b</span><span class="w"> </span>
-<span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="nb">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="nb">date</span><span class="w"> </span>
-<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
-<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="k">type</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="k">type</span><span class="w"> </span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="nb">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;2015-01-04&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> 
+  <span class="n">a</span><span class="p">.</span><span class="nb">date</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">avo_a</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="k">type</span><span class="p">,</span> 
+  <span class="n">b</span><span class="p">.</span><span class="n">avo_a</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="k">type</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">regionid</span>
+<span class="k">FROM</span> <span class="n">avocado</span> <span class="n">a</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">avocado</span> <span class="n">b</span> 
+  <span class="k">ON</span> <span class="n">a</span><span class="p">.</span><span class="nb">date</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="nb">date</span> 
+  <span class="k">AND</span> <span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span>
+  <span class="k">AND</span> <span class="n">a</span><span class="p">.</span><span class="k">type</span> <span class="o">&lt;&gt;</span> <span class="n">b</span><span class="p">.</span><span class="k">type</span> 
+<span class="k">WHERE</span> <span class="n">a</span><span class="p">.</span><span class="nb">date</span> <span class="o">=</span> <span class="s1">&#39;2015-01-04&#39;</span>
+  <span class="k">AND</span> <span class="n">a</span><span class="p">.</span><span class="n">regionid</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <p>CASE WHEN</p>
@@ -731,13 +741,13 @@ In order to understand joins, you should understand the basics of relational dat
 <p>We’ll use this to map types to the actual types (we could also do this with a join to our types table).</p>
 <p>Note that the formula starts with CASE and ends with END. We can give the column an alias using AS after the END.</p>
 <p>We can have as many WHEN/THEN clases as needed. Here we only need one because we have 2 types and the 2nd is covered by the ELSE</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="nb">date</span><span class="p">,</span><span class="w"> </span><span class="n">avo_a</span><span class="p">,</span><span class="w"></span>
-<span class="w"> </span><span class="k">CASE</span><span class="w"></span>
-<span class="w">  </span><span class="k">WHEN</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;conventional&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;organic&#39;</span><span class="w"></span>
-<span class="w"> </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">avotype</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">regionid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="nb">date</span><span class="p">,</span> <span class="n">avo_a</span><span class="p">,</span>
+ <span class="k">CASE</span>
+  <span class="k">WHEN</span> <span class="k">type</span> <span class="o">=</span><span class="mi">1</span> <span class="k">THEN</span> <span class="s1">&#39;conventional&#39;</span>
+  <span class="k">ELSE</span> <span class="s1">&#39;organic&#39;</span>
+ <span class="k">END</span> <span class="k">AS</span> <span class="n">avotype</span>
+<span class="k">FROM</span> <span class="n">avocado</span>
+<span class="k">WHERE</span> <span class="n">regionid</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <p>Subqueries</p>
@@ -745,47 +755,47 @@ In order to understand joins, you should understand the basics of relational dat
 Let’s say we want the full dataset but only for the top 10 regions by total volume.</p>
 <p>We could find the top 10 with the query below, then we could use this list of regions to filter the main table. But what if we got new data and the top 10 changed? We’d have to run both queries again. We can make this more dynamic using a subquery.</p>
 <p>To get the top 10, we’d run something like this:</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">region</span><span class="p">,</span><span class="w"> </span><span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">totalvol</span><span class="p">))</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
-<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">avoregion</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
-<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">DESC</span><span class="w"></span>
-<span class="k">LIMIT</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">b</span><span class="p">.</span><span class="n">region</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">totalvol</span><span class="p">))</span>
+<span class="k">FROM</span> <span class="n">avocado</span> <span class="n">a</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">avoregion</span> <span class="n">b</span> <span class="k">ON</span> <span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="mi">1</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="mi">2</span> <span class="k">DESC</span>
+<span class="k">LIMIT</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <p>In the query below, we use an INNER JOIN to filter the list to the regions in the subquery. We can also bring back data from the subquery because we’ve joined it.</p>
 <p>Please note how aliases work here. The subquery aliases are independent of the main query aliases, which is why we have 2 ‘a’ and ‘b’ aliases. To refer to subquery columns we have to use the subquery alias which is c in this case.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="nb">date</span><span class="p">,</span><span class="w"> </span><span class="n">totalvol</span><span class="p">,</span><span class="w"> </span><span class="n">avo_a</span><span class="p">,</span><span class="w"> </span><span class="n">avo_b</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">region</span><span class="p">,</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">total_totalvol</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
-<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">avoregion</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
-<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="p">,</span><span class="w"> </span><span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">totalvol</span><span class="p">))</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_totalvol</span><span class="w"></span>
-<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
-<span class="w">  </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">avoregion</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
-<span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">DESC</span><span class="w"></span>
-<span class="w">  </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">c</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="nb">date</span><span class="p">,</span> <span class="n">totalvol</span><span class="p">,</span> <span class="n">avo_a</span><span class="p">,</span> <span class="n">avo_b</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">region</span><span class="p">,</span> <span class="k">c</span><span class="p">.</span><span class="n">total_totalvol</span>
+<span class="k">FROM</span> <span class="n">avocado</span> <span class="n">a</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">avoregion</span> <span class="n">b</span> <span class="k">ON</span> <span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">(</span>
+  <span class="k">SELECT</span> <span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">totalvol</span><span class="p">))</span> <span class="k">as</span> <span class="n">total_totalvol</span>
+  <span class="k">FROM</span> <span class="n">avocado</span> <span class="n">a</span>
+  <span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">avoregion</span> <span class="n">b</span> <span class="k">ON</span> <span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span>
+  <span class="k">GROUP</span> <span class="k">BY</span> <span class="mi">1</span>
+  <span class="k">ORDER</span> <span class="k">BY</span> <span class="mi">2</span> <span class="k">DESC</span>
+  <span class="k">LIMIT</span> <span class="mi">10</span><span class="p">)</span> <span class="k">c</span> <span class="k">ON</span> <span class="n">a</span><span class="p">.</span><span class="n">regionid</span> <span class="o">=</span> <span class="k">c</span><span class="p">.</span><span class="n">regionid</span>
 </pre></div>
 </div>
 <p>Subqueries can also be used after a FROM or WHERE clause. Let’s illustrate these with a simple example.</p>
 <p>FROM Subquery</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">total_totalvol</span><span class="p">)</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="p">,</span><span class="w"> </span><span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">totalvol</span><span class="p">))</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_totalvol</span><span class="w"></span>
-<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
-<span class="w">  </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">avoregion</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
-<span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">DESC</span><span class="w"></span>
-<span class="w">  </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">AVG</span><span class="p">(</span><span class="n">total_totalvol</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="p">(</span>
+  <span class="k">SELECT</span> <span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">totalvol</span><span class="p">))</span> <span class="k">as</span> <span class="n">total_totalvol</span>
+  <span class="k">FROM</span> <span class="n">avocado</span> <span class="n">a</span>
+  <span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">avoregion</span> <span class="n">b</span> <span class="k">ON</span> <span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span>
+  <span class="k">GROUP</span> <span class="k">BY</span> <span class="mi">1</span>
+  <span class="k">ORDER</span> <span class="k">BY</span> <span class="mi">2</span> <span class="k">DESC</span>
+  <span class="k">LIMIT</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>WHERE Subquery</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">regionid</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="n">regionid</span><span class="w"></span>
-<span class="w">  </span><span class="k">FROM</span><span class="w">  </span><span class="n">avoregion</span><span class="w"> </span>
-<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">region</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;West%&#39;</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">avocado</span>
+<span class="k">WHERE</span> <span class="n">regionid</span> <span class="k">IN</span> <span class="p">(</span>
+  <span class="k">SELECT</span> <span class="n">regionid</span>
+  <span class="k">FROM</span>  <span class="n">avoregion</span> 
+  <span class="k">WHERE</span> <span class="n">region</span> <span class="k">LIKE</span> <span class="s1">&#39;West%&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Common Table Expressions</p>
@@ -794,18 +804,18 @@ Let’s say we want the full dataset but only for the top 10 regions by total vo
 <p>In this example we’ll just use a CTE in a way that could also be done with a subquery and we’ll take the INNER JOIN example from above.</p>
 <p>Here, we specify the subquery above our main query. We name it ‘top’ and specify the column names, then write a subquery. We can now call ‘top’ throughout the query to use this.</p>
 <p>If we call it multiple types, SQL only has to generate the table once.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">WITH</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="p">(</span><span class="n">regionid</span><span class="p">,</span><span class="w"> </span><span class="n">total_totalvol</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="k">SELECT</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="p">,</span><span class="w"> </span><span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">totalvol</span><span class="p">))</span><span class="w"></span>
-<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
-<span class="w">  </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">avoregion</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
-<span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">DESC</span><span class="w"></span>
-<span class="w">  </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span>
-<span class="k">SELECT</span><span class="w"> </span><span class="nb">date</span><span class="p">,</span><span class="w"> </span><span class="n">totalvol</span><span class="p">,</span><span class="w"> </span><span class="n">avo_a</span><span class="p">,</span><span class="w"> </span><span class="n">avo_b</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">region</span><span class="p">,</span><span class="w"> </span><span class="n">top</span><span class="p">.</span><span class="n">total_totalvol</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
-<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">avoregion</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
-<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">top</span><span class="p">.</span><span class="n">regionid</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">WITH</span> <span class="n">top</span> <span class="p">(</span><span class="n">regionid</span><span class="p">,</span> <span class="n">total_totalvol</span><span class="p">)</span> <span class="k">AS</span> <span class="p">(</span>
+<span class="k">SELECT</span> <span class="n">b</span><span class="p">.</span><span class="n">regionid</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">totalvol</span><span class="p">))</span>
+  <span class="k">FROM</span> <span class="n">avocado</span> <span class="n">a</span>
+  <span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">avoregion</span> <span class="n">b</span> <span class="k">ON</span> <span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span>
+  <span class="k">GROUP</span> <span class="k">BY</span> <span class="mi">1</span>
+  <span class="k">ORDER</span> <span class="k">BY</span> <span class="mi">2</span> <span class="k">DESC</span>
+  <span class="k">LIMIT</span> <span class="mi">10</span><span class="p">)</span>
+  
+<span class="k">SELECT</span> <span class="nb">date</span><span class="p">,</span> <span class="n">totalvol</span><span class="p">,</span> <span class="n">avo_a</span><span class="p">,</span> <span class="n">avo_b</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">region</span><span class="p">,</span> <span class="n">top</span><span class="p">.</span><span class="n">total_totalvol</span>
+<span class="k">FROM</span> <span class="n">avocado</span> <span class="n">a</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">avoregion</span> <span class="n">b</span> <span class="k">ON</span> <span class="n">a</span><span class="p">.</span><span class="n">regionid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">regionid</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">top</span> <span class="k">ON</span> <span class="n">a</span><span class="p">.</span><span class="n">regionid</span> <span class="o">=</span> <span class="n">top</span><span class="p">.</span><span class="n">regionid</span>
 </pre></div>
 </div>
 <p>Window Functions</p>
@@ -815,57 +825,57 @@ Let’s say we want the full dataset but only for the top 10 regions by total vo
 <p>Basically — we can use Window functions to look at rows above and below each row.</p>
 <p>Running Total</p>
 <p>The OVER ORDER BY sequence is the window function. OVER is almost like a GROUP BY, specifying how we want to construct our sum. The ORDER BY allows us to create the running total</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span>
-<span class="w">   </span><span class="nb">date</span><span class="w"></span>
-<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">avo_a</span><span class="w"></span>
-<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">avo_a</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">running_total</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">regionid</span><span class="w"> </span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="o">=</span><span class="mi">1</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> 
+   <span class="nb">date</span>
+ <span class="p">,</span> <span class="n">avo_a</span>
+ <span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">avo_a</span><span class="p">)</span> <span class="n">OVER</span> <span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="nb">date</span><span class="p">)</span> <span class="k">AS</span> <span class="n">running_total</span>
+<span class="k">FROM</span> <span class="n">avocado</span>
+<span class="k">WHERE</span> <span class="n">regionid</span> <span class="o">=</span><span class="mi">1</span> <span class="k">AND</span> <span class="k">type</span> <span class="o">=</span><span class="mi">1</span>
 </pre></div>
 </div>
 <p>Total by date</p>
 <p>Here, we use PARTITION BY to group the SUM by a given column (Date in this case)</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span>
-<span class="w">   </span><span class="nb">date</span><span class="w"></span>
-<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">avo_a</span><span class="w"></span>
-<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">type</span><span class="w"></span>
-<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">avo_a</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">date_total</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">regionid</span><span class="w"> </span><span class="o">=</span><span class="mi">1</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> 
+   <span class="nb">date</span>
+ <span class="p">,</span> <span class="n">avo_a</span>
+ <span class="p">,</span> <span class="k">type</span>
+ <span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">avo_a</span><span class="p">)</span> <span class="n">OVER</span> <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="nb">date</span><span class="p">)</span> <span class="k">AS</span> <span class="n">date_total</span>
+<span class="k">FROM</span> <span class="n">avocado</span>
+<span class="k">WHERE</span> <span class="n">regionid</span> <span class="o">=</span><span class="mi">1</span>
 </pre></div>
 </div>
 <p>Moving Average</p>
 <p>This is where things start to heat up. By using AVG and ORDER BY date, we can specify ROWS to take a moving average. 3 PRECEDING is a 3 day moving average, but we can specify any number.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span>
-<span class="w">   </span><span class="nb">date</span><span class="w"></span>
-<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">avo_a</span><span class="w"></span>
-<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">avo_a</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">ASC</span><span class="w">  </span><span class="k">ROWS</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">PRECEDING</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">date_total</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">regionid</span><span class="w"> </span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="k">type</span><span class="o">=</span><span class="mi">1</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> 
+   <span class="nb">date</span>
+ <span class="p">,</span> <span class="n">avo_a</span>
+ <span class="p">,</span> <span class="k">AVG</span><span class="p">(</span><span class="n">avo_a</span><span class="p">)</span> <span class="n">OVER</span> <span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="nb">date</span> <span class="k">ASC</span>  <span class="k">ROWS</span> <span class="mi">3</span> <span class="n">PRECEDING</span><span class="p">)</span> <span class="k">AS</span> <span class="n">date_total</span>
+<span class="k">FROM</span> <span class="n">avocado</span>
+<span class="k">WHERE</span> <span class="n">regionid</span> <span class="o">=</span><span class="mi">1</span> <span class="k">AND</span> <span class="k">type</span><span class="o">=</span><span class="mi">1</span>
 </pre></div>
 </div>
 <p>Get First Row</p>
 <p>Let’s say we have varying end dates for each region. We can use Window Functions combined with a Subquery to get the first or last dates.</p>
 <p>First, let’s define what our Subquery will be. The below query adds a row number, grouped by region id and ordered from most recent to oldest. We can select the first row from each grouping to get the newest date</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span>
-<span class="w">   </span><span class="nb">date</span><span class="w"></span>
-<span class="w">   </span><span class="p">,</span><span class="w"> </span><span class="n">regionid</span><span class="w"></span>
-<span class="w">   </span><span class="p">,</span><span class="w"> </span><span class="n">ROW_NUMBER</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">regionid</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">desc</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">row_number</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
-<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">regionid</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> 
+   <span class="nb">date</span>
+   <span class="p">,</span> <span class="n">regionid</span>
+   <span class="p">,</span> <span class="n">ROW_NUMBER</span><span class="p">()</span> <span class="n">OVER</span> <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">regionid</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="nb">date</span> <span class="k">desc</span><span class="p">)</span> <span class="k">AS</span> <span class="n">row_number</span>
+<span class="k">FROM</span> <span class="n">avocado</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">regionid</span>
 </pre></div>
 </div>
 <p>Now, we subquery the original and take only the first row.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="nb">date</span><span class="p">,</span><span class="w"> </span><span class="n">regionid</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"></span>
-<span class="w">  </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span>
-<span class="w">     </span><span class="nb">date</span><span class="w"></span>
-<span class="w">     </span><span class="p">,</span><span class="w"> </span><span class="n">regionid</span><span class="w"></span>
-<span class="w">     </span><span class="p">,</span><span class="w"> </span><span class="n">ROW_NUMBER</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">regionid</span><span class="w"> </span>
-<span class="w">     </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">desc</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">row_number</span><span class="w"></span>
-<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">avocado</span><span class="w"></span>
-<span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">regionid</span><span class="p">)</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">row_number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="nb">date</span><span class="p">,</span> <span class="n">regionid</span>
+<span class="k">FROM</span>
+  <span class="p">(</span><span class="k">SELECT</span> 
+     <span class="nb">date</span>
+     <span class="p">,</span> <span class="n">regionid</span>
+     <span class="p">,</span> <span class="n">ROW_NUMBER</span><span class="p">()</span> <span class="n">OVER</span> <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">regionid</span> 
+     <span class="k">ORDER</span> <span class="k">BY</span> <span class="nb">date</span> <span class="k">desc</span><span class="p">)</span> <span class="k">AS</span> <span class="n">row_number</span>
+  <span class="k">FROM</span> <span class="n">avocado</span>
+  <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">regionid</span><span class="p">)</span>
+<span class="k">WHERE</span> <span class="n">row_number</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>

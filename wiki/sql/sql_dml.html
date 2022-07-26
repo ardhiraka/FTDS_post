@@ -181,6 +181,16 @@ const thebe_selector_output = ".output, .cell_output"
      MySQL Practice 3
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../self/sqlself/sql_practice4.html">
+     Statistic Descriptive in SQL
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../self/sqlself/sql_practice5.html">
+     Pivoting Data in SQL
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -514,14 +524,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>The number of rows to return.</p></li>
 </ul>
 <p>A SELECT statement looks like this:</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="k">SELECT</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="k">names</span><span class="w"></span>
-<span class="w">     </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">name</span><span class="w"></span>
-<span class="w">     </span><span class="k">WHERE</span><span class="w"> </span><span class="k">search</span><span class="w"> </span><span class="n">condition</span><span class="w"></span>
-<span class="w">     </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="k">names</span><span class="w"></span>
-<span class="w">     </span><span class="k">HAVING</span><span class="w"> </span><span class="k">search</span><span class="w"> </span><span class="n">condition</span><span class="w"></span>
-<span class="w">     </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">column</span><span class="o">-</span><span class="n">name</span><span class="w"></span>
-<span class="w">     </span><span class="k">OFFSET</span><span class="w"> </span><span class="nb">number</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">rows</span><span class="w"></span>
-<span class="w">     </span><span class="k">FETCH</span><span class="w"> </span><span class="k">FIRST</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">ROWS</span><span class="w"> </span><span class="k">ONLY</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>   <span class="k">SELECT</span> <span class="k">column</span> <span class="k">names</span>
+     <span class="k">FROM</span> <span class="k">table</span> <span class="k">or</span> <span class="k">view</span> <span class="n">name</span>
+     <span class="k">WHERE</span> <span class="k">search</span> <span class="n">condition</span>
+     <span class="k">GROUP</span> <span class="k">BY</span> <span class="k">column</span> <span class="k">names</span>
+     <span class="k">HAVING</span> <span class="k">search</span> <span class="n">condition</span>
+     <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">column</span><span class="o">-</span><span class="n">name</span>
+     <span class="k">OFFSET</span> <span class="nb">number</span> <span class="k">of</span> <span class="k">rows</span>
+     <span class="k">FETCH</span> <span class="k">FIRST</span> <span class="n">n</span> <span class="k">ROWS</span> <span class="k">ONLY</span>
 </pre></div>
 </div>
 <p>The SELECT and FROM clauses must be specified. The other clauses are optional.</p>
@@ -534,9 +544,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p><code class="docutils literal notranslate"><span class="pre">...</span> <span class="pre">WHERE</span> <span class="pre">WORKDEPT</span> <span class="pre">=</span> <span class="pre">'C01'</span></code></p>
 <p>In this case, the search condition consists of one predicate: WORKDEPT = ‘C01’.</p>
 <p>To further illustrate WHERE, put it into a SELECT statement. Assume that each department listed in the CORPDATA.DEPARTMENT table has a unique department number. You want to retrieve the department name and manager number from the CORPDATA.DEPARTMENT table for department C01. Issue the following statement:</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">DEPTNAME</span><span class="p">,</span><span class="w"> </span><span class="n">MGRNO</span><span class="w"></span>
-<span class="w">       </span><span class="k">FROM</span><span class="w"> </span><span class="n">CORPDATA</span><span class="p">.</span><span class="n">DEPARTMENT</span><span class="w"></span>
-<span class="w">       </span><span class="k">WHERE</span><span class="w"> </span><span class="n">DEPTNO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;C01&#39;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">DEPTNAME</span><span class="p">,</span> <span class="n">MGRNO</span>
+       <span class="k">FROM</span> <span class="n">CORPDATA</span><span class="p">.</span><span class="n">DEPARTMENT</span>
+       <span class="k">WHERE</span> <span class="n">DEPTNO</span> <span class="o">=</span> <span class="s1">&#39;C01&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -561,9 +571,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p>When you specify a GROUP BY clause, SQL divides the selected rows into groups such that the rows of each group have matching values in one or more columns or expressions. Next, SQL processes each group to produce a single-row result for the group. You can specify one or more columns or expressions in the GROUP BY clause to group the rows. The items you specify in the SELECT statement are properties of each group of rows, not properties of individual rows in a table or view.</p>
 <p>Without a GROUP BY clause, the application of SQL aggregate functions returns one row. When GROUP BY is used, the function is applied to each group, thereby returning as many rows as there are groups.</p>
 <p>For example, the CORPDATA.EMPLOYEE table has several sets of rows, and each set consists of rows describing members of a specific department. To find the average salary of people in each department, you can issue:</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">WORKDEPT</span><span class="p">,</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="w"> </span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">SALARY</span><span class="p">),</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
-<span class="w">       </span><span class="k">FROM</span><span class="w"> </span><span class="n">CORPDATA</span><span class="p">.</span><span class="n">EMPLOYEE</span><span class="w"></span>
-<span class="w">       </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">WORKDEPT</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">WORKDEPT</span><span class="p">,</span> <span class="nb">DECIMAL</span> <span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">SALARY</span><span class="p">),</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+       <span class="k">FROM</span> <span class="n">CORPDATA</span><span class="p">.</span><span class="n">EMPLOYEE</span>
+       <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">WORKDEPT</span>
 </pre></div>
 </div>
 </div>
@@ -573,11 +583,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The HAVING clause says that you want only those groups that satisfy the condition in that clause. Therefore, the search condition you specify in the HAVING clause must test properties of each group rather than properties of individual rows in the group.</p>
 <p>The HAVING clause follows the GROUP BY clause and can contain the same kind of search condition as you can specify in a WHERE clause. In addition, you can specify aggregate functions in a HAVING clause. For example, suppose that you want to retrieve the average salary of women in each department. To do this, use the AVG aggregate function and group the resulting rows by WORKDEPT and specify a WHERE clause of SEX = ‘F’.</p>
 <p>To specify that you want this data only when all the female employees in the selected department have an education level equal to or greater than 16 (a college graduate), use the HAVING clause. The HAVING clause tests a property of the group. In this case, the test is on MIN(EDLEVEL), which is a group property:</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">WORKDEPT</span><span class="p">,</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">SALARY</span><span class="p">),</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">AVG_WAGES</span><span class="p">,</span><span class="w"> </span><span class="k">MIN</span><span class="p">(</span><span class="n">EDLEVEL</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">MIN_EDUC</span><span class="w"></span>
-<span class="w">       </span><span class="k">FROM</span><span class="w"> </span><span class="n">CORPDATA</span><span class="p">.</span><span class="n">EMPLOYEE</span><span class="w"></span>
-<span class="w">       </span><span class="k">WHERE</span><span class="w"> </span><span class="n">SEX</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="w"></span>
-<span class="w">       </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">WORKDEPT</span><span class="w"></span>
-<span class="w">       </span><span class="k">HAVING</span><span class="w"> </span><span class="k">MIN</span><span class="p">(</span><span class="n">EDLEVEL</span><span class="p">)</span><span class="o">&gt;=</span><span class="mi">16</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">WORKDEPT</span><span class="p">,</span> <span class="nb">DECIMAL</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">SALARY</span><span class="p">),</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="n">AVG_WAGES</span><span class="p">,</span> <span class="k">MIN</span><span class="p">(</span><span class="n">EDLEVEL</span><span class="p">)</span> <span class="k">AS</span> <span class="n">MIN_EDUC</span>
+       <span class="k">FROM</span> <span class="n">CORPDATA</span><span class="p">.</span><span class="n">EMPLOYEE</span>
+       <span class="k">WHERE</span> <span class="n">SEX</span><span class="o">=</span><span class="s1">&#39;F&#39;</span>
+       <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">WORKDEPT</span>
+       <span class="k">HAVING</span> <span class="k">MIN</span><span class="p">(</span><span class="n">EDLEVEL</span><span class="p">)</span><span class="o">&gt;=</span><span class="mi">16</span>
 </pre></div>
 </div>
 </div>
@@ -585,17 +595,17 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>ORDER BY clause<a class="headerlink" href="#order-by-clause" title="Permalink to this headline">¶</a></h3>
 <p>The ORDER BY clause specifies the particular order in which you want selected rows returned. The order is sorted by ascending or descending collating sequence of a column’s or an expression’s value.</p>
 <p>For example, to retrieve the names and department numbers of female employees listed in the alphanumeric order of their department numbers, you can use this select-statement:</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">LASTNAME</span><span class="p">,</span><span class="n">WORKDEPT</span><span class="w"></span>
-<span class="w">       </span><span class="k">FROM</span><span class="w"> </span><span class="n">CORPDATA</span><span class="p">.</span><span class="n">EMPLOYEE</span><span class="w"></span>
-<span class="w">       </span><span class="k">WHERE</span><span class="w"> </span><span class="n">SEX</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="w"></span>
-<span class="w">       </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">WORKDEPT</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">LASTNAME</span><span class="p">,</span><span class="n">WORKDEPT</span>
+       <span class="k">FROM</span> <span class="n">CORPDATA</span><span class="p">.</span><span class="n">EMPLOYEE</span>
+       <span class="k">WHERE</span> <span class="n">SEX</span><span class="o">=</span><span class="s1">&#39;F&#39;</span>
+       <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">WORKDEPT</span>
 </pre></div>
 </div>
 <p>The column specified in the ORDER BY clause does not need to be included in the SELECT clause. For example, the following statement will return all female employees ordered with the largest salary first:</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">LASTNAME</span><span class="p">,</span><span class="n">FIRSTNME</span><span class="w"></span>
-<span class="w">       </span><span class="k">FROM</span><span class="w"> </span><span class="n">CORPDATA</span><span class="p">.</span><span class="n">EMPLOYEE</span><span class="w"></span>
-<span class="w">       </span><span class="k">WHERE</span><span class="w"> </span><span class="n">SEX</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="w"></span>
-<span class="w">       </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">SALARY</span><span class="w"> </span><span class="k">DESC</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">LASTNAME</span><span class="p">,</span><span class="n">FIRSTNME</span>
+       <span class="k">FROM</span> <span class="n">CORPDATA</span><span class="p">.</span><span class="n">EMPLOYEE</span>
+       <span class="k">WHERE</span> <span class="n">SEX</span><span class="o">=</span><span class="s1">&#39;F&#39;</span>
+       <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">SALARY</span> <span class="k">DESC</span>
 </pre></div>
 </div>
 </div>
@@ -603,9 +613,9 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>Handling null values<a class="headerlink" href="#handling-null-values" title="Permalink to this headline">¶</a></h3>
 <p>A null value indicates the absence of a column value in a row. A null value is an unknown value; it is not the same as zero or all blanks.</p>
 <p>Null values can be used as a condition in the WHERE and HAVING clauses. For example, a WHERE clause can specify a column that, for some rows, contains a null value. A basic comparison predicate using a column that contains null values does not select a row that has a null value for the column. This is because a null value is not less than, equal to, or greater than the value specified in the condition. The IS NULL predicate is used to check for null values. To select the values for all rows that contain a null value for the manager number, you can specify:</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">DEPTNO</span><span class="p">,</span><span class="w"> </span><span class="n">DEPTNAME</span><span class="p">,</span><span class="w"> </span><span class="n">ADMRDEPT</span><span class="w"></span>
-<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">CORPDATA</span><span class="p">.</span><span class="n">DEPARTMENT</span><span class="w"></span>
-<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">MGRNO</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">DEPTNO</span><span class="p">,</span> <span class="n">DEPTNAME</span><span class="p">,</span> <span class="n">ADMRDEPT</span>
+  <span class="k">FROM</span> <span class="n">CORPDATA</span><span class="p">.</span><span class="n">DEPARTMENT</span>
+  <span class="k">WHERE</span> <span class="n">MGRNO</span> <span class="k">IS</span> <span class="k">NULL</span>
 </pre></div>
 </div>
 </div>
@@ -614,13 +624,13 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Sometimes you need to cast or change the type of an expression to a different data type or to the same data type with a different length, precision, or scale.</p>
 <p>For example, if you want to compare two columns of different types, such as a user-defined type based on a character and an integer, you can change the character to an integer or the integer to a character to make the comparison possible. A data type that can be changed to another data type is castable from the source data type to the target data type.</p>
 <p>You can use cast functions or CAST specification to explicitly cast a data type to another data type. For example, if you have a column of dates (BIRTHDATE) defined as DATE and want to cast the column data type to CHARACTER with a fixed length of 10, enter the following:</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="nb">CHAR</span><span class="w"> </span><span class="p">(</span><span class="n">BIRTHDATE</span><span class="p">,</span><span class="n">USA</span><span class="p">)</span><span class="w"></span>
-<span class="w">   </span><span class="k">FROM</span><span class="w"> </span><span class="n">CORPDATA</span><span class="p">.</span><span class="n">EMPLOYEE</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="nb">CHAR</span> <span class="p">(</span><span class="n">BIRTHDATE</span><span class="p">,</span><span class="n">USA</span><span class="p">)</span>
+   <span class="k">FROM</span> <span class="n">CORPDATA</span><span class="p">.</span><span class="n">EMPLOYEE</span>
 </pre></div>
 </div>
 <p>You can also use the CAST specification to cast data types directly:</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">CAST</span><span class="p">(</span><span class="n">BIRTHDATE</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span><span class="w"></span>
-<span class="w">   </span><span class="k">FROM</span><span class="w"> </span><span class="n">CORPDATA</span><span class="p">.</span><span class="n">EMPLOYEE</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">CAST</span><span class="p">(</span><span class="n">BIRTHDATE</span> <span class="k">AS</span> <span class="nb">CHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+   <span class="k">FROM</span> <span class="n">CORPDATA</span><span class="p">.</span><span class="n">EMPLOYEE</span>
 </pre></div>
 </div>
 </div>
@@ -628,15 +638,15 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>Handling duplicate rows<a class="headerlink" href="#handling-duplicate-rows" title="Permalink to this headline">¶</a></h3>
 <p>When SQL evaluates a select-statement, several rows might qualify to be in the result table, depending on the number of rows that satisfy the search condition of the select-statement. Some of the rows in the result table might be duplicate.</p>
 <p>You can specify that you do not want any duplicates by using the DISTINCT keyword, followed by the list of expressions:</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">JOB</span><span class="p">,</span><span class="w"> </span><span class="n">SEX</span><span class="w"></span>
-<span class="p">...</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">JOB</span><span class="p">,</span> <span class="n">SEX</span>
+<span class="p">...</span>
 </pre></div>
 </div>
 <p>DISTINCT means that you want to select only the unique rows. If a selected row duplicates another row in the result table, the duplicate row is ignored (it is not put into the result table). For example, suppose you want a list of employee job codes. You do not need to know which employee has what job code. Because it is probable that several people in a department have the same job code, you can use DISTINCT to ensure that the result table has only unique values.</p>
 <p>The following example shows how to do this:</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">JOB</span><span class="w"></span>
-<span class="w">      </span><span class="k">FROM</span><span class="w"> </span><span class="n">CORPDATA</span><span class="p">.</span><span class="n">EMPLOYEE</span><span class="w"></span>
-<span class="w">      </span><span class="k">WHERE</span><span class="w"> </span><span class="n">WORKDEPT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;D11&#39;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>  <span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">JOB</span>
+      <span class="k">FROM</span> <span class="n">CORPDATA</span><span class="p">.</span><span class="n">EMPLOYEE</span>
+      <span class="k">WHERE</span> <span class="n">WORKDEPT</span> <span class="o">=</span> <span class="s1">&#39;D11&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -690,30 +700,30 @@ A percent sign stands for an unknown string of 0 or more characters. If the perc
 <ul class="simple">
 <li><p><strong>AND</strong> says that, for a row to qualify, the row must satisfy both predicates of the search condition. For example, to find out which employees in department D21 were hired after December 31, 1987, specify:</p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">...</span><span class="w"></span>
-<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">WORKDEPT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;D21&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">HIREDATE</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="s1">&#39;1987-12-31&#39;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
+  <span class="k">WHERE</span> <span class="n">WORKDEPT</span> <span class="o">=</span> <span class="s1">&#39;D21&#39;</span> <span class="k">AND</span> <span class="n">HIREDATE</span> <span class="o">&gt;</span> <span class="s1">&#39;1987-12-31&#39;</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p><strong>OR</strong> says that, for a row to qualify, the row can satisfy the condition set by either or both predicates of the search condition. For example, to find out which employees are in either department C01 or D11, you can specify :</p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">...</span><span class="w"></span>
-<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">WORKDEPT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;C01&#39;</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">WORKDEPT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;D11&#39;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
+  <span class="k">WHERE</span> <span class="n">WORKDEPT</span> <span class="o">=</span> <span class="s1">&#39;C01&#39;</span> <span class="k">OR</span> <span class="n">WORKDEPT</span> <span class="o">=</span> <span class="s1">&#39;D11&#39;</span>
 </pre></div>
 </div>
 <p>Note: You can also use IN to specify this request: WHERE WORKDEPT IN (‘C01’, ‘D11’).</p>
 <ul class="simple">
 <li><p><strong>NOT</strong> says that, to qualify, a row must not meet the criteria set by the search condition or predicate that follows the NOT. For example, to find all employees in the department E11 except those with a job code equal to analyst, you can specify:</p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">...</span><span class="w"></span>
-<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">WORKDEPT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;E11&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">JOB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ANALYST&#39;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
+  <span class="k">WHERE</span> <span class="n">WORKDEPT</span> <span class="o">=</span> <span class="s1">&#39;E11&#39;</span> <span class="k">AND</span> <span class="k">NOT</span> <span class="n">JOB</span> <span class="o">=</span> <span class="s1">&#39;ANALYST&#39;</span>
 </pre></div>
 </div>
 <p>When SQL evaluates search conditions that contain these connectors, it does so in a specific order. SQL first evaluates the NOT clauses, next evaluates the AND clauses, and then the OR clauses.</p>
 <p>You can change the order of evaluation by using parentheses. The search conditions enclosed in parentheses are evaluated first. For example, to select all employees in departments E11 and E21 who have education levels greater than 12, you can specify:</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">...</span><span class="w"></span>
-<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">EDLEVEL</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="k">AND</span><span class="w"></span>
-<span class="w">     </span><span class="p">(</span><span class="n">WORKDEPT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;E11&#39;</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">WORKDEPT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;E21&#39;</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
+  <span class="k">WHERE</span> <span class="n">EDLEVEL</span> <span class="o">&gt;</span> <span class="mi">12</span> <span class="k">AND</span>
+     <span class="p">(</span><span class="n">WORKDEPT</span> <span class="o">=</span> <span class="s1">&#39;E11&#39;</span> <span class="k">OR</span> <span class="n">WORKDEPT</span> <span class="o">=</span> <span class="s1">&#39;E21&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The parentheses determine the meaning of the search condition. In this example, you want all rows that have a:</p>
@@ -722,9 +732,9 @@ A percent sign stands for an unknown string of 0 or more characters. If the perc
 <li><p>EDLEVEL value greater than 12</p></li>
 </ul>
 <p>If you did not use parentheses:</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">...</span><span class="w"></span>
-<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">EDLEVEL</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">WORKDEPT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;E11&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="k">OR</span><span class="w"> </span><span class="n">WORKDEPT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;E21&#39;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
+  <span class="k">WHERE</span> <span class="n">EDLEVEL</span> <span class="o">&gt;</span> <span class="mi">12</span> <span class="k">AND</span> <span class="n">WORKDEPT</span> <span class="o">=</span> <span class="s1">&#39;E11&#39;</span>
+    <span class="k">OR</span> <span class="n">WORKDEPT</span> <span class="o">=</span> <span class="s1">&#39;E21&#39;</span>
 </pre></div>
 </div>
 <p>Your result is different. The selected rows are rows that have:</p>
@@ -733,13 +743,13 @@ A percent sign stands for an unknown string of 0 or more characters. If the perc
 <li><p>WORKDEPT = E21, regardless of the EDLEVEL value</p></li>
 </ul>
 <p>If you are combining multiple equal comparisons, you can write the predicate with the ANDs as shown in the following example:</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">...</span><span class="w"></span>
-<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">WORKDEPT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;E11&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">EDLEVEL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">JOB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;CLERK&#39;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
+  <span class="k">WHERE</span> <span class="n">WORKDEPT</span> <span class="o">=</span> <span class="s1">&#39;E11&#39;</span> <span class="k">AND</span> <span class="n">EDLEVEL</span> <span class="o">=</span> <span class="mi">12</span> <span class="k">AND</span> <span class="n">JOB</span> <span class="o">=</span> <span class="s1">&#39;CLERK&#39;</span>
 </pre></div>
 </div>
 <p>You can also compare two lists, for example:</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">...</span><span class="w"></span>
-<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="p">(</span><span class="n">WORKDEPT</span><span class="p">,</span><span class="w"> </span><span class="n">EDLEVEL</span><span class="p">,</span><span class="w"> </span><span class="n">JOB</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;E11&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CLERK&#39;</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
+  <span class="k">WHERE</span> <span class="p">(</span><span class="n">WORKDEPT</span><span class="p">,</span> <span class="n">EDLEVEL</span><span class="p">,</span> <span class="n">JOB</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;E11&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;CLERK&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>When two lists are used, the first item in the first list is compared to the first item in the second list, and so on through both lists. Thus, each list must contain the same number of entries. Using lists is identical to writing the query with AND. Lists can only be used with the equal and not equal comparison operators.</p>

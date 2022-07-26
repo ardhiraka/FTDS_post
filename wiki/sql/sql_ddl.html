@@ -181,6 +181,16 @@ const thebe_selector_output = ".output, .cell_output"
      MySQL Practice 3
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../self/sqlself/sql_practice4.html">
+     Statistic Descriptive in SQL
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../self/sqlself/sql_practice5.html">
+     Pivoting Data in SQL
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -424,11 +434,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Quantity on hand: Integer between 0 and 100000</p></li>
 </ul>
 <p>The primary key is PARTNO.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">INVENTORY</span><span class="w"></span>
-<span class="w">                 </span><span class="p">(</span><span class="n">PARTNO</span><span class="w">         </span><span class="nb">SMALLINT</span><span class="w">     </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"></span>
-<span class="w">                  </span><span class="n">DESCR</span><span class="w">          </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">24</span><span class="w"> </span><span class="p">),</span><span class="w"></span>
-<span class="w">                  </span><span class="n">QONHAND</span><span class="w">        </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
-<span class="w">                  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">PARTNO</span><span class="p">))</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">INVENTORY</span>
+                 <span class="p">(</span><span class="n">PARTNO</span>         <span class="nb">SMALLINT</span>     <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+                  <span class="n">DESCR</span>          <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">24</span> <span class="p">),</span>
+                  <span class="n">QONHAND</span>        <span class="nb">INT</span><span class="p">,</span>
+                  <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">(</span><span class="n">PARTNO</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -460,10 +470,10 @@ const thebe_selector_output = ".output, .cell_output"
 <p>You can create a table from the result of a SELECT statement. To create this type of table, use the CREATE TABLE AS statement.</p>
 <p>All of the expressions that can be used in a SELECT statement can be used in a CREATE TABLE AS statement. You can also include all of the data from the table or tables that you are selecting from.</p>
 <p>For example, create a table named EMPLOYEE3 that includes a subset of column definitions and data from the EMPLOYEE table where the WORKDEPT = D11.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">EMPLOYEE3</span><span class="w"> </span><span class="k">AS</span><span class="w"></span>
-<span class="w">   </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">EMPNO</span><span class="p">,</span><span class="w"> </span><span class="n">LASTNAME</span><span class="p">,</span><span class="w"> </span><span class="n">JOB</span><span class="w"></span>
-<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">EMPLOYEE</span><span class="w"></span>
-<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">WORKDEPT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;D11&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">DATA</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">EMPLOYEE3</span> <span class="k">AS</span>
+   <span class="p">(</span><span class="k">SELECT</span> <span class="n">EMPNO</span><span class="p">,</span> <span class="n">LASTNAME</span><span class="p">,</span> <span class="n">JOB</span>
+    <span class="k">FROM</span> <span class="n">EMPLOYEE</span>
+    <span class="k">WHERE</span> <span class="n">WORKDEPT</span> <span class="o">=</span> <span class="s1">&#39;D11&#39;</span><span class="p">)</span> <span class="k">WITH</span> <span class="k">DATA</span>
 </pre></div>
 </div>
 <p>If the specified table or view contains an identity column, you must specify the option INCLUDING IDENTITY on the CREATE TABLE statement if you want the identity column to exist in the new table. The default behavior for CREATE TABLE is EXCLUDING IDENTITY. There are similar options to include the default value, the hidden attribute, and the row change timestamp attribute. The WITH NO DATA clause indicates that the column definitions are to be copied without the data. If you want to include the data in the new table EMPLOYEE3, include the WITH DATA clause. If the specified query includes a non-SQL-created physical file or logical file, any non-SQL result attributes are removed.</p>
