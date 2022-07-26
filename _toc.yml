@@ -35,6 +35,8 @@ parts:
     - file: self/sqlself/sql_practice1
     - file: self/sqlself/sql_practice2
     - file: self/sqlself/sql_practice3
+    - file: self/sqlself/sql_practice4
+    - file: self/sqlself/sql_practice5
   - file: self/tableau/tableau
     sections:
     - file: self/tableau/intro1

@@ -1,0 +1,879 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Statistic Descriptive in SQL &#8212; FTDS Post Study Materials</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Pivoting Data in SQL" href="sql_practice5.html" />
+    <link rel="prev" title="MySQL Practice 3" href="sql_practice3.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">FTDS Post Study Materials</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Hacktiv8 Data Science Fulltime Program Post Study Materials
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Wiki
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../wiki/business/business.html">
+   Business Accumen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/business/term.html">
+     Terminologies
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../wiki/sql/sql_intro.html">
+   SQL
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/sql/sql_term.html">
+     Terminologies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/sql/sql_ddl.html">
+     DDL
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../wiki/sql/sql_dml.html">
+     DML
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Self Learning
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="sqlself.html">
+   SQL
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="sql_practice1.html">
+     SQLite Practice 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sql_practice2.html">
+     MySQL Practice 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sql_practice3.html">
+     MySQL Practice 3
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Statistic Descriptive in SQL
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sql_practice5.html">
+     Pivoting Data in SQL
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tableau/tableau.html">
+   Tableau
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tableau/intro1.html">
+     Tableau Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tableau/intro2.html">
+     Tableau Dashboard
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tableau/intro3.html">
+     Tableau Dashboard Practice
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Job-Related Prep
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../job/DA/da_intro.html">
+   Data Analyst
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../job/DA/da1.html">
+     References
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../refs.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/self/sqlself/sql_practice4.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/self/sqlself/sql_practice4.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-basics">
+   The Basics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-count">
+     SQL COUNT
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-sum">
+     SQL SUM
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-min-max">
+     SQL MIN/MAX
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-avg">
+     SQL AVG
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-group-by">
+     SQL GROUP BY
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-having">
+     SQL HAVING
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-case">
+     SQL CASE
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-distinct">
+     SQL DISTINCT
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#subqueries-in-sql">
+     Subqueries in SQL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-window-functions">
+     SQL Window Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Statistic Descriptive in SQL</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-basics">
+   The Basics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-count">
+     SQL COUNT
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-sum">
+     SQL SUM
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-min-max">
+     SQL MIN/MAX
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-avg">
+     SQL AVG
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-group-by">
+     SQL GROUP BY
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-having">
+     SQL HAVING
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-case">
+     SQL CASE
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-distinct">
+     SQL DISTINCT
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#subqueries-in-sql">
+     Subqueries in SQL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-window-functions">
+     SQL Window Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="statistic-descriptive-in-sql">
+<h1>Statistic Descriptive in SQL<a class="headerlink" href="#statistic-descriptive-in-sql" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Start by installing MySQL from here: https://dev.mysql.com/downloads/</p></li>
+<li><p>Follow the instructions from <a class="reference external" href="https://ladvien.com/data-analytics-mysql-localhost-setup/">here</a> to setup MySQL on your local machine.</p></li>
+<li><p>Install MySQL Workbench from here: https://dev.mysql.com/downloads/workbench/</p></li>
+<li><p>Download dataset used in this lecture from here: https://github.com/ardhiraka/PFDS_sources/blob/master/aapl_historical_stock_price.csv</p></li>
+</ol>
+</div>
+<div class="section" id="the-basics">
+<h2>The Basics<a class="headerlink" href="#the-basics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sql-count">
+<h3>SQL COUNT<a class="headerlink" href="#sql-count" title="Permalink to this headline">¶</a></h3>
+<p>Counting all rows
+COUNT is a SQL aggregate function for counting the number of rows in a particular column. COUNT is the easiest aggregate function to begin with because verifying your results is extremely simple. Let’s begin by using * to select all rows from the Apple stock prices dataset:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">aapl_historical_stock_price</span>
+</pre></div>
+</div>
+<p>Counting individual columns
+Things start to get a little bit tricky when you want to count individual columns. The following code will provide a count of all of rows in which the high column is not null.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">high</span><span class="p">)</span> <span class="k">AS</span> <span class="n">count_high</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">aapl_historical_stock_price</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sql-sum">
+<h3>SQL SUM<a class="headerlink" href="#sql-sum" title="Permalink to this headline">¶</a></h3>
+<p>SUM is a SQL aggregate function. that totals the values in a given column. Unlike COUNT, you can only use SUM on columns containing numerical values.</p>
+<p>The query below selects the sum of the volume column from the Apple stock prices dataset:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="n">volume</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">aapl_historical_stock_price</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sql-min-max">
+<h3>SQL MIN/MAX<a class="headerlink" href="#sql-min-max" title="Permalink to this headline">¶</a></h3>
+<p>MIN and MAX are SQL aggregation functions that return the lowest and highest values in a particular column.</p>
+<p>They’re similar to COUNT in that they can be used on non-numerical columns. Depending on the column type, MIN will return the lowest number, earliest date, or non-numerical value as close alphabetically to “A” as possible. As you might suspect, MAX does the opposite—it returns the highest number, the latest date, or the non-numerical value closest alphabetically to “Z.”</p>
+<p>For example, the following query selects the MIN and the MAX from the numerical volume column in the Apple stock prices dataset.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">MIN</span><span class="p">(</span><span class="n">volume</span><span class="p">)</span> <span class="k">AS</span> <span class="n">min_volume</span><span class="p">,</span>
+       <span class="k">MAX</span><span class="p">(</span><span class="n">volume</span><span class="p">)</span> <span class="k">AS</span> <span class="n">max_volume</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">aapl_historical_stock_price</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sql-avg">
+<h3>SQL AVG<a class="headerlink" href="#sql-avg" title="Permalink to this headline">¶</a></h3>
+<p>AVG is a SQL aggregate function that calculates the average of a selected group of values. It’s very useful, but has some limitations. First, it can only be used on numerical columns. Second, it ignores nulls completely. You can see this by comparing these two queries of the Apple stock prices dataset:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">AVG</span><span class="p">(</span><span class="n">high</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">aapl_historical_stock_price</span>
+ <span class="k">WHERE</span> <span class="n">high</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
+</pre></div>
+</div>
+<p>The above query produces the same result as the following query:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">AVG</span><span class="p">(</span><span class="n">high</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">aapl_historical_stock_price</span>
+</pre></div>
+</div>
+<p>All queries can be combined like this:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span>
+    <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">AS</span> <span class="n">Volume_Count</span><span class="p">,</span>
+    <span class="k">avg</span><span class="p">(</span><span class="n">volume</span><span class="p">)</span> <span class="k">AS</span> <span class="n">Volume_Average</span><span class="p">,</span>
+    <span class="n">stddev</span><span class="p">(</span><span class="n">volume</span><span class="p">)</span> <span class="k">AS</span> <span class="n">Volume_Stddev</span><span class="p">,</span>
+    <span class="k">min</span><span class="p">(</span><span class="n">volume</span><span class="p">)</span> <span class="k">AS</span> <span class="n">Volume_Min</span><span class="p">,</span>
+    <span class="k">max</span><span class="p">(</span><span class="n">volume</span><span class="p">)</span> <span class="k">AS</span> <span class="n">Volume_Max</span>
+<span class="k">FROM</span>
+    <span class="n">hacktiv8</span><span class="p">.</span><span class="n">aapl_historical_stock_price</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sql-group-by">
+<h3>SQL GROUP BY<a class="headerlink" href="#sql-group-by" title="Permalink to this headline">¶</a></h3>
+<p>SQL aggregate function like COUNT, AVG, and SUM have something in common: they all aggregate across the entire table. But what if you want to aggregate only part of a table? For example, you might want to count the number of entries for each year.</p>
+<p>In situations like this, you’d need to use the GROUP BY clause. GROUP BY allows you to separate data into groups, which can be aggregated independently of one another. Here’s an example using the Apple stock prices dataset:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">year</span><span class="p">,</span>
+       <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">AS</span> <span class="k">count</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">aapl_historical_stock_price</span>
+ <span class="k">GROUP</span> <span class="k">BY</span> <span class="k">year</span>
+</pre></div>
+</div>
+<p>You can group by multiple columns, but you have to separate column names with commas—just as with ORDER BY):</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">year</span><span class="p">,</span>
+       <span class="k">month</span><span class="p">,</span>
+       <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">AS</span> <span class="k">count</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">aapl_historical_stock_price</span>
+ <span class="k">GROUP</span> <span class="k">BY</span> <span class="k">year</span><span class="p">,</span> <span class="k">month</span>
+</pre></div>
+</div>
+<p>The order of column names in your GROUP BY clause doesn’t matter—the results will be the same regardless. If you want to control how the aggregations are grouped together, use ORDER BY. Try running the query below, then reverse the column names in the ORDER BY statement and see how it looks:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">year</span><span class="p">,</span>
+       <span class="k">month</span><span class="p">,</span>
+       <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">AS</span> <span class="k">count</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">aapl_historical_stock_price</span>
+ <span class="k">GROUP</span> <span class="k">BY</span> <span class="k">year</span><span class="p">,</span> <span class="k">month</span>
+ <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">month</span><span class="p">,</span> <span class="k">year</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sql-having">
+<h3>SQL HAVING<a class="headerlink" href="#sql-having" title="Permalink to this headline">¶</a></h3>
+<p>However, you’ll often encounter datasets where GROUP BY isn’t enough to get what you’re looking for. Let’s say that it’s not enough just to know aggregated stats by month. After all, there are a lot of months in this dataset. Instead, you might want to find every month during which AAPL stock worked its way over $400/share. The WHERE clause won’t work for this because it doesn’t allow you to filter on aggregate columns—that’s where the HAVING clause comes in:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">year</span><span class="p">,</span>
+       <span class="k">month</span><span class="p">,</span>
+       <span class="k">MAX</span><span class="p">(</span><span class="n">high</span><span class="p">)</span> <span class="k">AS</span> <span class="n">month_high</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">aapl_historical_stock_price</span>
+ <span class="k">GROUP</span> <span class="k">BY</span> <span class="k">year</span><span class="p">,</span> <span class="k">month</span>
+<span class="k">HAVING</span> <span class="k">MAX</span><span class="p">(</span><span class="n">high</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">400</span>
+ <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">year</span><span class="p">,</span> <span class="k">month</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sql-case">
+<h3>SQL CASE<a class="headerlink" href="#sql-case" title="Permalink to this headline">¶</a></h3>
+<p>The CASE statement is SQL’s way of handling if/then logic. The CASE statement is followed by at least one pair of WHEN and THEN statements—SQL’s equivalent of IF/THEN in Excel. Because of this pairing, you might be tempted to call this SQL CASE WHEN, but CASE is the accepted term.</p>
+<p>Every CASE statement must end with the END statement. The ELSE statement is optional, and provides a way to capture values not specified in the WHEN/THEN statements. CASE is easiest to understand in the context of an example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="nb">date</span><span class="p">,</span>
+       <span class="n">volume</span><span class="p">,</span>
+       <span class="k">CASE</span> <span class="k">WHEN</span> <span class="k">close</span> <span class="o">&gt;</span> <span class="mi">500</span> <span class="k">THEN</span> <span class="s1">&#39;yes&#39;</span>
+            <span class="k">ELSE</span> <span class="s1">&#39;no&#39;</span> <span class="k">END</span> <span class="k">AS</span> <span class="n">big_number</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">aapl_historical_stock_price</span>
+</pre></div>
+</div>
+<p>You can also define a number of outcomes in a CASE statement by including as many WHEN/THEN statements as you’d like:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="nb">date</span><span class="p">,</span>
+       <span class="n">volume</span><span class="p">,</span>
+       <span class="k">CASE</span> <span class="k">WHEN</span> <span class="k">close</span> <span class="o">&gt;</span> <span class="mi">500</span> <span class="k">THEN</span> <span class="s1">&#39;yes&#39;</span>
+            <span class="k">WHEN</span> <span class="k">close</span> <span class="o">&gt;</span> <span class="mi">300</span> <span class="k">THEN</span> <span class="s1">&#39;maybe&#39;</span>
+            <span class="k">ELSE</span> <span class="s1">&#39;no&#39;</span> <span class="k">END</span> <span class="k">AS</span> <span class="n">big_number</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">aapl_historical_stock_price</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sql-distinct">
+<h3>SQL DISTINCT<a class="headerlink" href="#sql-distinct" title="Permalink to this headline">¶</a></h3>
+<p>ou’ll occasionally want to look at only the unique values in a particular column. You can do this using SELECT DISTINCT syntax. To select unique values from the month column in the Apple stock prices dataset, you’d use the following query:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="k">month</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">aapl_historical_stock_price</span>
+</pre></div>
+</div>
+<p>If you include two (or more) columns in a SELECT DISTINCT clause, your results will contain all of the unique pairs of those two columns:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="k">year</span><span class="p">,</span> <span class="k">month</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">aapl_historical_stock_price</span>
+</pre></div>
+</div>
+<p>You can use DISTINCT when performing an aggregation. You’ll probably use it most commonly with the COUNT function.</p>
+<p>In this case, you should run the query below that counts the unique values in the month column.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="k">month</span><span class="p">)</span> <span class="k">AS</span> <span class="n">unique_months</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">aapl_historical_stock_price</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="subqueries-in-sql">
+<h3>Subqueries in SQL<a class="headerlink" href="#subqueries-in-sql" title="Permalink to this headline">¶</a></h3>
+<p>Subqueries (also known as inner queries or nested queries) are a tool for performing operations in multiple steps. For example, if you wanted to take the sums of several columns, then average all of those values, you’d need to do each aggregation in a distinct step.</p>
+<p>Subqueries can be used in several places within a query, but it’s easiest to start with the FROM statement. Here’s an example of a basic subquery:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="p">(</span>
+	<span class="k">SELECT</span> <span class="o">*</span>
+	<span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">aapl_historical_stock_price</span>
+    <span class="k">WHERE</span> <span class="k">year</span> <span class="o">=</span> <span class="mi">2014</span>
+    <span class="p">)</span> <span class="n">aapl_historical_stock_price</span>
+<span class="k">WHERE</span> <span class="k">close</span> <span class="o">&gt;</span> <span class="mi">400</span>
+</pre></div>
+</div>
+<p>Let’s break down what happens when you run the above query:</p>
+<p>First, the database runs the “inner query”—the part between the parentheses:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+	<span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">aapl_historical_stock_price</span>
+    <span class="k">WHERE</span> <span class="k">year</span> <span class="o">=</span> <span class="mi">2014</span>
+</pre></div>
+</div>
+<p>If you were to run this on its own, it would produce a result set like any other query. It might sound like a no-brainer, but it’s important: your inner query must actually run on its own, as the database will treat it as an independent query. Once the inner query runs, the outer query will run using the results from the inner query as its underlying table:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="p">(</span>
+	<span class="o">&lt;&lt;</span><span class="n">results</span> <span class="k">from</span> <span class="k">inner</span> <span class="n">query</span> <span class="k">go</span> <span class="n">here</span><span class="o">&gt;&gt;</span>
+    <span class="p">)</span> <span class="n">aapl_historical_stock_price</span>
+<span class="k">WHERE</span> <span class="k">close</span> <span class="o">&gt;</span> <span class="mi">400</span>
+</pre></div>
+</div>
+<p>Subqueries are required to have names, which are added after parentheses the same way you would add an alias to a normal table. In this case, we’ve used the name “aapl_historical_stock_price.”</p>
+</div>
+<div class="section" id="sql-window-functions">
+<h3>SQL Window Functions<a class="headerlink" href="#sql-window-functions" title="Permalink to this headline">¶</a></h3>
+<p>For windows function, please download data from here https://github.com/ardhiraka/PFDS_sources/blob/master/dc_bikeshare_q1_2012.csv</p>
+<p>A window function performs a calculation across a set of table rows that are somehow related to the current row. This is comparable to the type of calculation that can be done with an aggregate function. But unlike regular aggregate functions, use of a window function does not cause rows to become grouped into a single output row — the rows retain their separate identities. Behind the scenes, the window function is able to access more than just the current row of the query result.</p>
+<p>The most practical example of this is a running total:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">duration_seconds</span><span class="p">,</span>
+       <span class="k">SUM</span><span class="p">(</span><span class="n">duration_seconds</span><span class="p">)</span> <span class="n">OVER</span> <span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="n">start_time</span><span class="p">)</span> <span class="k">AS</span> <span class="n">running_total</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">dc_bikeshare_q1_2012</span>
+</pre></div>
+</div>
+<p>When using window functions, you can apply the same aggregates that you would under normal circumstances—SUM, COUNT, and AVG. The easiest way to understand these is to re-run the previous example with some additional functions. Make</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">start_terminal</span><span class="p">,</span>
+       <span class="n">duration_seconds</span><span class="p">,</span>
+       <span class="k">SUM</span><span class="p">(</span><span class="n">duration_seconds</span><span class="p">)</span> <span class="n">OVER</span>
+         <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">start_terminal</span><span class="p">)</span> <span class="k">AS</span> <span class="n">running_total</span><span class="p">,</span>
+       <span class="k">COUNT</span><span class="p">(</span><span class="n">duration_seconds</span><span class="p">)</span> <span class="n">OVER</span>
+         <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">start_terminal</span><span class="p">)</span> <span class="k">AS</span> <span class="n">running_count</span><span class="p">,</span>
+       <span class="k">AVG</span><span class="p">(</span><span class="n">duration_seconds</span><span class="p">)</span> <span class="n">OVER</span>
+         <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">start_terminal</span><span class="p">)</span> <span class="k">AS</span> <span class="n">running_avg</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">dc_bikeshare_q1_2012</span>
+ <span class="k">WHERE</span> <span class="n">start_time</span> <span class="o">&lt;</span> <span class="s1">&#39;2012-01-08&#39;</span>
+</pre></div>
+</div>
+<p>ROW_NUMBER() does just what it sounds like—displays the number of a given row. It starts are 1 and numbers the rows according to the ORDER BY part of the window statement. ROW_NUMBER() does not require you to specify a variable within the parentheses:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">start_terminal</span><span class="p">,</span>
+       <span class="n">start_time</span><span class="p">,</span>
+       <span class="n">duration_seconds</span><span class="p">,</span>
+       <span class="n">ROW_NUMBER</span><span class="p">()</span> <span class="n">OVER</span> <span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="n">start_time</span><span class="p">)</span>
+                    <span class="k">AS</span> <span class="n">rn</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">dc_bikeshare_q1_2012</span>
+ <span class="k">WHERE</span> <span class="n">start_time</span> <span class="o">&lt;</span> <span class="s1">&#39;2012-01-08&#39;</span>
+</pre></div>
+</div>
+<p>Using the PARTITION BY clause will allow you to begin counting 1 again in each partition. The following query starts the count over again for each terminal:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">start_terminal</span><span class="p">,</span>
+       <span class="n">start_time</span><span class="p">,</span>
+       <span class="n">duration_seconds</span><span class="p">,</span>
+       <span class="n">ROW_NUMBER</span><span class="p">()</span> <span class="n">OVER</span> <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">start_terminal</span>
+                          <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">start_time</span><span class="p">)</span>
+                    <span class="k">AS</span> <span class="n">rn</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">dc_bikeshare_q1_2012</span>
+ <span class="k">WHERE</span> <span class="n">start_time</span> <span class="o">&lt;</span> <span class="s1">&#39;2012-01-08&#39;</span>
+</pre></div>
+</div>
+<p>RANK() is slightly different from ROW_NUMBER(). If you order by start_time, for example, it might be the case that some terminals have rides with two identical start times. In this case, they are given the same rank, whereas ROW_NUMBER() gives them different numbers. In the following query, you notice the 4th and 5th observations for start_terminal 31000—they are both given a rank of 4, and the following result receives a rank of 6:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">start_terminal</span><span class="p">,</span>
+       <span class="n">duration_seconds</span><span class="p">,</span>
+       <span class="n">RANK</span><span class="p">()</span> <span class="n">OVER</span> <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">start_terminal</span>
+                    <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">start_time</span><span class="p">)</span>
+              <span class="k">AS</span> <span class="n">ranking</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">dc_bikeshare_q1_2012</span>
+ <span class="k">WHERE</span> <span class="n">start_time</span> <span class="o">&lt;</span> <span class="s1">&#39;2012-01-08&#39;</span>
+</pre></div>
+</div>
+<p>You can also use DENSE_RANK() instead of RANK() depending on your application. Imagine a situation in which three entries have the same value. Using either command, they will all get the same rank. For the sake of this example, let’s say it’s “2.” Here’s how the two commands would evaluate the next results differently:</p>
+<ul class="simple">
+<li><p>RANK() would give the identical rows a rank of 2, then skip ranks 3 and 4, so the next result would be 5</p></li>
+<li><p>DENSE_RANK() would still give all the identical rows a rank of 2, but the following row would be 3—no ranks would be skipped.</p></li>
+</ul>
+<p>You can use window functions to identify what percentile (or quartile, or any other subdivision) a given row falls into. The syntax is NTILE(<em># of buckets</em>). In this case, ORDER BY determines which column to use to determine the quartiles (or whatever number of ‘tiles you specify). For example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">start_terminal</span><span class="p">,</span>
+       <span class="n">duration_seconds</span><span class="p">,</span>
+       <span class="n">NTILE</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="n">OVER</span>
+         <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">start_terminal</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">duration_seconds</span><span class="p">)</span>
+          <span class="k">AS</span> <span class="n">quartile</span><span class="p">,</span>
+       <span class="n">NTILE</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="n">OVER</span>
+         <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">start_terminal</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">duration_seconds</span><span class="p">)</span>
+         <span class="k">AS</span> <span class="n">quintile</span><span class="p">,</span>
+       <span class="n">NTILE</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="n">OVER</span>
+         <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">start_terminal</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">duration_seconds</span><span class="p">)</span>
+         <span class="k">AS</span> <span class="n">percentile</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">dc_bikeshare_q1_2012</span>
+ <span class="k">WHERE</span> <span class="n">start_time</span> <span class="o">&lt;</span> <span class="s1">&#39;2012-01-08&#39;</span>
+ <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">start_terminal</span><span class="p">,</span> <span class="n">duration_seconds</span>
+</pre></div>
+</div>
+<p>It can often be useful to compare rows to preceding or following rows, especially if you’ve got the data in an order that makes sense. You can use LAG or LEAD to create columns that pull values from other rows—all you need to do is enter which column to pull from and how many rows away you’d like to do the pull. LAG pulls from previous rows and LEAD pulls from following rows:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">start_terminal</span><span class="p">,</span>
+       <span class="n">duration_seconds</span><span class="p">,</span>
+       <span class="n">LAG</span><span class="p">(</span><span class="n">duration_seconds</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="n">OVER</span>
+         <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">start_terminal</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">duration_seconds</span><span class="p">)</span> <span class="k">AS</span> <span class="n">lag</span><span class="p">,</span>
+       <span class="n">LEAD</span><span class="p">(</span><span class="n">duration_seconds</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="n">OVER</span>
+         <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">start_terminal</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">duration_seconds</span><span class="p">)</span> <span class="k">AS</span> <span class="n">lead</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">dc_bikeshare_q1_2012</span>
+ <span class="k">WHERE</span> <span class="n">start_time</span> <span class="o">&lt;</span> <span class="s1">&#39;2012-01-08&#39;</span>
+ <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">start_terminal</span><span class="p">,</span> <span class="n">duration_seconds</span>
+</pre></div>
+</div>
+<p>This is especially useful if you want to calculate differences between rows:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">start_terminal</span><span class="p">,</span>
+       <span class="n">duration_seconds</span><span class="p">,</span>
+       <span class="n">duration_seconds</span> <span class="o">-</span><span class="n">LAG</span><span class="p">(</span><span class="n">duration_seconds</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="n">OVER</span>
+         <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">start_terminal</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">duration_seconds</span><span class="p">)</span>
+         <span class="k">AS</span> <span class="n">difference</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">dc_bikeshare_q1_2012</span>
+ <span class="k">WHERE</span> <span class="n">start_time</span> <span class="o">&lt;</span> <span class="s1">&#39;2012-01-08&#39;</span>
+ <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">start_terminal</span><span class="p">,</span> <span class="n">duration_seconds</span>
+</pre></div>
+</div>
+<p>The first row of the difference column is null because there is no previous row from which to pull. Similarly, using LEAD will create nulls at the end of the dataset. If you’d like to make the results a bit cleaner, you can wrap it in an outer query to remove nulls:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+  <span class="k">FROM</span> <span class="p">(</span>
+    <span class="k">SELECT</span> <span class="n">start_terminal</span><span class="p">,</span>
+           <span class="n">duration_seconds</span><span class="p">,</span>
+           <span class="n">duration_seconds</span> <span class="o">-</span><span class="n">LAG</span><span class="p">(</span><span class="n">duration_seconds</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="n">OVER</span>
+             <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">start_terminal</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">duration_seconds</span><span class="p">)</span>
+             <span class="k">AS</span> <span class="n">difference</span>
+      <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">dc_bikeshare_q1_2012</span>
+     <span class="k">WHERE</span> <span class="n">start_time</span> <span class="o">&lt;</span> <span class="s1">&#39;2012-01-08&#39;</span>
+     <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">start_terminal</span><span class="p">,</span> <span class="n">duration_seconds</span>
+       <span class="p">)</span> <span class="n">sub</span>
+ <span class="k">WHERE</span> <span class="n">sub</span><span class="p">.</span><span class="n">difference</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
+</pre></div>
+</div>
+<p>If you’re planning to write several window functions in to the same query, using the same window, you can create an alias. Take the NTILE example above:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">start_terminal</span><span class="p">,</span>
+       <span class="n">duration_seconds</span><span class="p">,</span>
+       <span class="n">NTILE</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="n">OVER</span>
+         <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">start_terminal</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">duration_seconds</span><span class="p">)</span>
+         <span class="k">AS</span> <span class="n">quartile</span><span class="p">,</span>
+       <span class="n">NTILE</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="n">OVER</span>
+         <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">start_terminal</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">duration_seconds</span><span class="p">)</span>
+         <span class="k">AS</span> <span class="n">quintile</span><span class="p">,</span>
+       <span class="n">NTILE</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="n">OVER</span>
+         <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">start_terminal</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">duration_seconds</span><span class="p">)</span>
+         <span class="k">AS</span> <span class="n">percentile</span>
+  <span class="k">FROM</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">dc_bikeshare_q1_2012</span>
+ <span class="k">WHERE</span> <span class="n">start_time</span> <span class="o">&lt;</span> <span class="s1">&#39;2012-01-08&#39;</span>
+ <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">start_terminal</span><span class="p">,</span> <span class="n">duration_seconds</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./self\sqlself"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="sql_practice3.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">MySQL Practice 3</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="sql_practice5.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pivoting Data in SQL</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By FTDS Curriculum Team<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Tableau" href="../tableau/tableau.html" />
+    <link rel="next" title="Statistic Descriptive in SQL" href="sql_practice4.html" />
     <link rel="prev" title="MySQL Practice 2" href="sql_practice2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -179,6 +179,16 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      MySQL Practice 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sql_practice4.html">
+     Statistic Descriptive in SQL
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sql_practice5.html">
+     Pivoting Data in SQL
     </a>
    </li>
   </ul>
@@ -448,13 +458,13 @@ const thebe_selector_output = ".output, .cell_output"
 <ol class="simple">
 <li><p>Create a new table</p></li>
 </ol>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">table_name1</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">    </span><span class="o">&lt;</span><span class="n">col_name1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col_type1</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span>
-<span class="w">    </span><span class="o">&lt;</span><span class="n">col_name2</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col_type2</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span>
-<span class="w">    </span><span class="o">&lt;</span><span class="n">col_name3</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col_type3</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">col_name1</span><span class="o">&gt;</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">col_name2</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="o">&lt;</span><span class="n">table_name2</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">col_name2</span><span class="o">&gt;</span><span class="p">)</span><span class="w"></span>
-<span class="p">);</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">&lt;</span><span class="n">table_name1</span><span class="o">&gt;</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="n">col_name1</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">col_type1</span><span class="o">&gt;</span><span class="p">,</span> 
+    <span class="o">&lt;</span><span class="n">col_name2</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">col_type2</span><span class="o">&gt;</span><span class="p">,</span> 
+    <span class="o">&lt;</span><span class="n">col_name3</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">col_type3</span><span class="o">&gt;</span>
+    <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">col_name1</span><span class="o">&gt;</span><span class="p">),</span>
+    <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">col_name2</span><span class="o">&gt;</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="o">&lt;</span><span class="n">table_name2</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">col_name2</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="p">);</span>
 </pre></div>
 </div>
 <p>Integrity Constraints in CREATE TABLE</p>
@@ -566,10 +576,10 @@ const thebe_selector_output = ".output, .cell_output"
             <p class="prev-next-title">MySQL Practice 2</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../tableau/tableau.html" title="next page">
+    <a class='right-next' id="next-link" href="sql_practice4.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tableau</p>
+        <p class="prev-next-title">Statistic Descriptive in SQL</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

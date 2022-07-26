@@ -15,6 +15,10 @@ You can **AUDIT** this course for free to enhance your Data Analyst skills and t
   - [Analyze Data to Answer Questions](https://www.coursera.org/learn/analyze-data?specialization=google-data-analytics)
   - [Share Data Through the Art of Visualization](https://www.coursera.org/learn/visualize-data?specialization=google-data-analytics)
 
+This written course is a **free** course. You can **AUDIT** this course for free to enhance your Data Analyst skills and to prepare for interviews:
+
+<https://explore.skillbuilder.aws/learn/course/44/play/483/data-analytics-fundamentals>
+
 Optional:
 
 If you want to gain more on your business skills, you can also take the following courses:

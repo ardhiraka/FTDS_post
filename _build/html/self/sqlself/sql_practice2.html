@@ -181,6 +181,16 @@ const thebe_selector_output = ".output, .cell_output"
      MySQL Practice 3
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sql_practice4.html">
+     Statistic Descriptive in SQL
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sql_practice5.html">
+     Pivoting Data in SQL
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -480,74 +490,74 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The <code class="docutils literal notranslate"><span class="pre">*</span></code> indicates that we want to display all column and the limit keyword specifies the number of rows to be displayed.
 The dataset contains some personal information and the amount charged for the insurance.</p>
 <p>We can calculate the average charge amount for smokers and non-smokers.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">smoker</span><span class="p">,</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">charges</span><span class="p">)</span><span class="w"></span>
-<span class="k">from</span><span class="w"> </span><span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span><span class="w"></span>
-<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">smoker</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="n">smoker</span><span class="p">,</span> <span class="k">avg</span><span class="p">(</span><span class="n">charges</span><span class="p">)</span>
+<span class="k">from</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span>
+<span class="k">group</span> <span class="k">by</span> <span class="n">smoker</span>
 </pre></div>
 </div>
 <p>It is similar to the group by function of pandas. We select the smoker and charges columns and apply the average function on the charges. The group by statement allows for separating rows based on the different categories in the smoker column. Thus, we get two averages in the result.
 If we want to see the overall average, we only need to select the charges column.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">charges</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="k">avg</span><span class="p">(</span><span class="n">charges</span><span class="p">)</span> <span class="k">from</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>We may also want to see the number of smokers and non-smokers along with the average charges value.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">smoker</span><span class="p">,</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">charges</span><span class="p">),</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="n">charges</span><span class="p">)</span><span class="w"></span>
-<span class="k">from</span><span class="w"> </span><span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span><span class="w"></span>
-<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">smoker</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="n">smoker</span><span class="p">,</span> <span class="k">avg</span><span class="p">(</span><span class="n">charges</span><span class="p">),</span> <span class="k">count</span><span class="p">(</span><span class="n">charges</span><span class="p">)</span>
+<span class="k">from</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span>
+<span class="k">group</span> <span class="k">by</span> <span class="n">smoker</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>In addition to the previous example, we select the count of the charges column.</p>
 <p>Consider a case where we need to further separate smokers and non-smokers based on gender. To accomplish this task, we need to the sex column to the group by statement.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">smoker</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span><span class="p">,</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">charges</span><span class="p">),</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="n">charges</span><span class="p">)</span><span class="w"></span>
-<span class="k">from</span><span class="w"> </span><span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span><span class="w"></span>
-<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">smoker</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="n">smoker</span><span class="p">,</span> <span class="n">sex</span><span class="p">,</span> <span class="k">avg</span><span class="p">(</span><span class="n">charges</span><span class="p">),</span> <span class="k">count</span><span class="p">(</span><span class="n">charges</span><span class="p">)</span>
+<span class="k">from</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span>
+<span class="k">group</span> <span class="k">by</span> <span class="n">smoker</span><span class="p">,</span> <span class="n">sex</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>The select statement also allows for filtering. For instance, we can run the query in the previous statement for people who live in the southeast region.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">smoker</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span><span class="p">,</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">charges</span><span class="p">),</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="n">charges</span><span class="p">)</span><span class="w"></span>
-<span class="k">from</span><span class="w"> </span><span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span><span class="w"></span>
-<span class="k">where</span><span class="w"> </span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;southeast&#39;</span><span class="w"></span>
-<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">smoker</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="n">smoker</span><span class="p">,</span> <span class="n">sex</span><span class="p">,</span> <span class="k">avg</span><span class="p">(</span><span class="n">charges</span><span class="p">),</span> <span class="k">count</span><span class="p">(</span><span class="n">charges</span><span class="p">)</span>
+<span class="k">from</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span>
+<span class="k">where</span> <span class="n">region</span> <span class="o">=</span> <span class="s1">&#39;southeast&#39;</span>
+<span class="k">group</span> <span class="k">by</span> <span class="n">smoker</span><span class="p">,</span> <span class="n">sex</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>We use the where statement to specify the condition for filtering. It is important to note that the where statement must be written before the group by statement in the select query.</p>
 <p>We want to find the average bmi value for different categories based on the smoker and children columns but only display the top 3 categories in terms of the average bmi.</p>
 <p>This examples includes sorting aggregated values which can be done with the order by statement.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">smoker</span><span class="p">,</span><span class="w"> </span><span class="n">children</span><span class="p">,</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span><span class="w"> </span>
-<span class="k">from</span><span class="w"> </span><span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span><span class="w"></span>
-<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">smoker</span><span class="p">,</span><span class="w"> </span><span class="n">children</span><span class="w"></span>
-<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span><span class="w"> </span><span class="k">desc</span><span class="w"></span>
-<span class="k">limit</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="n">smoker</span><span class="p">,</span> <span class="n">children</span><span class="p">,</span> <span class="k">avg</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span> 
+<span class="k">from</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span>
+<span class="k">group</span> <span class="k">by</span> <span class="n">smoker</span><span class="p">,</span> <span class="n">children</span>
+<span class="k">order</span> <span class="k">by</span> <span class="k">avg</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span> <span class="k">desc</span>
+<span class="k">limit</span> <span class="mi">3</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>The order by statement sorts the rows based on the given column in ascending order. We can change it to descending order by using the desc keyword after the name of the column.</p>
 <p>Let’s elaborate on the previous example. Consider a case where we need the groups with average bmi values higher than the overall average.</p>
 <p>One way is to separately calculate the overall average and use it as a condition for filtering.</p>
 <p><code class="docutils literal notranslate"><span class="pre">select</span> <span class="pre">avg(bmi)</span> <span class="pre">from</span> <span class="pre">hacktiv8.insurance;</span></code></p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">smoker</span><span class="p">,</span><span class="w"> </span><span class="n">children</span><span class="p">,</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span><span class="w"></span>
-<span class="k">from</span><span class="w"> </span><span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span><span class="w"></span>
-<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">smoker</span><span class="p">,</span><span class="w"> </span><span class="n">children</span><span class="w"></span>
-<span class="k">having</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">30</span><span class="p">.</span><span class="mi">6633969</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="n">smoker</span><span class="p">,</span> <span class="n">children</span><span class="p">,</span> <span class="k">avg</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span>
+<span class="k">from</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span>
+<span class="k">group</span> <span class="k">by</span> <span class="n">smoker</span><span class="p">,</span> <span class="n">children</span>
+<span class="k">having</span> <span class="k">avg</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">.</span><span class="mi">6633969</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>It is important to note that when we filter based on an aggregated value, we use the having statement instead of the where statement.</p>
 <p>The second option is to combine these two queries in a nested query.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">smoker</span><span class="p">,</span><span class="w"> </span><span class="n">children</span><span class="p">,</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span><span class="w"></span>
-<span class="k">from</span><span class="w"> </span><span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span><span class="w"></span>
-<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">smoker</span><span class="p">,</span><span class="w"> </span><span class="n">children</span><span class="w"></span>
-<span class="k">having</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="k">select</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span><span class="w"></span>
-<span class="p">);</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="n">smoker</span><span class="p">,</span> <span class="n">children</span><span class="p">,</span> <span class="k">avg</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span>
+<span class="k">from</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span>
+<span class="k">group</span> <span class="k">by</span> <span class="n">smoker</span><span class="p">,</span> <span class="n">children</span>
+<span class="k">having</span> <span class="k">avg</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span> <span class="o">&gt;</span> <span class="p">(</span>
+<span class="k">select</span> <span class="k">avg</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span> <span class="k">from</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span>
+<span class="p">);</span>
 </pre></div>
 </div>
 <p>This example is a little more complex than the previous one. Instead of only displaying the rows that have a more than average bmi value, we want to create a new column that indicates whether a row is more than average or not.</p>
 <p>We will use a case-when statement inside our nested query.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">smoker</span><span class="p">,</span><span class="w"> </span><span class="n">children</span><span class="p">,</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">bmi</span><span class="p">),</span><span class="w"></span>
-<span class="p">(</span><span class="k">case</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="k">select</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="ss">&quot;more than avg&quot;</span><span class="w"></span>
-<span class="k">else</span><span class="w"> </span><span class="ss">&quot;less than avg&quot;</span><span class="w"> </span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">compared_to_avg</span><span class="w"></span>
-<span class="k">from</span><span class="w"> </span><span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span><span class="w"></span>
-<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">smoker</span><span class="p">,</span><span class="w"> </span><span class="n">children</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="n">smoker</span><span class="p">,</span> <span class="n">children</span><span class="p">,</span> <span class="k">avg</span><span class="p">(</span><span class="n">bmi</span><span class="p">),</span>
+<span class="p">(</span><span class="k">case</span> <span class="k">when</span> <span class="k">avg</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span> <span class="o">&gt;</span> <span class="p">(</span>
+<span class="k">select</span> <span class="k">avg</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span> <span class="k">from</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span><span class="p">)</span> <span class="k">then</span> <span class="ss">&quot;more than avg&quot;</span>
+<span class="k">else</span> <span class="ss">&quot;less than avg&quot;</span> <span class="k">end</span><span class="p">)</span> <span class="k">as</span> <span class="n">compared_to_avg</span>
+<span class="k">from</span> <span class="n">hacktiv8</span><span class="p">.</span><span class="n">insurance</span>
+<span class="k">group</span> <span class="k">by</span> <span class="n">smoker</span><span class="p">,</span> <span class="n">children</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Before displaying the result, let’s try to understand what each step in the query does.</p>
