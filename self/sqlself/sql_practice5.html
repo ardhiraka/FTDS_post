@@ -349,6 +349,33 @@ const thebe_selector_output = ".output, .cell_output"
    Setup
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pivot-table">
+   Pivot Table
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sql-with-python">
+   SQL with Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-mysql-driver">
+     Install MySQL Driver
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-mysql-connector">
+     Test MySQL Connector
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-mysql-example">
+     Python MySQL Example
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
             </nav>
@@ -374,6 +401,33 @@ const thebe_selector_output = ".output, .cell_output"
    Setup
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pivot-table">
+   Pivot Table
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sql-with-python">
+   SQL with Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-mysql-driver">
+     Install MySQL Driver
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-mysql-connector">
+     Test MySQL Connector
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-mysql-example">
+     Python MySQL Example
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
                         </nav>
@@ -393,6 +447,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Install MySQL Workbench from here: https://dev.mysql.com/downloads/workbench/</p></li>
 <li><p>Download dataset used in this lecture from here: https://github.com/ardhiraka/PFDS_sources/blob/master/players.csv and https://github.com/ardhiraka/PFDS_sources/blob/master/teams.csv</p></li>
 </ol>
+</div>
+<div class="section" id="pivot-table">
+<h2>Pivot Table<a class="headerlink" href="#pivot-table" title="Permalink to this headline">¶</a></h2>
 <p>Let’s start by aggregating the data to show the number of players of each year in each conference, similar to the first example in the inner join lesson:</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">teams</span><span class="p">.</span><span class="n">conference</span> <span class="k">AS</span> <span class="n">conference</span><span class="p">,</span>
        <span class="n">players</span><span class="p">.</span><span class="k">year</span><span class="p">,</span>
@@ -455,6 +512,373 @@ const thebe_selector_output = ".output, .cell_output"
  <span class="k">GROUP</span> <span class="k">BY</span> <span class="mi">1</span>
  <span class="k">ORDER</span> <span class="k">BY</span> <span class="mi">2</span> <span class="k">DESC</span>
 </pre></div>
+</div>
+</div>
+<div class="section" id="sql-with-python">
+<h2>SQL with Python<a class="headerlink" href="#sql-with-python" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="install-mysql-driver">
+<h3>Install MySQL Driver<a class="headerlink" href="#install-mysql-driver" title="Permalink to this headline">¶</a></h3>
+<p>If you want to use Python, you need to install mysql-connector first with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-q</span> <span class="pre">mysql-connector-python</span></code></p>
+</div>
+<div class="section" id="test-mysql-connector">
+<h3>Test MySQL Connector<a class="headerlink" href="#test-mysql-connector" title="Permalink to this headline">¶</a></h3>
+<p>Below are the example commands to use MySQL with Python directly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mysql.connector</span>
+
+<span class="n">cnx</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+    <span class="n">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">,</span> 
+    <span class="n">password</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="n">host</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get cursor from connection</span>
+<span class="n">cur</span> <span class="o">=</span> <span class="n">cnx</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+<span class="c1"># Query to execute</span>
+
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;select * </span>
+<span class="s2">from hacktiv8.players</span>
+<span class="s2">limit 5&quot;&quot;&quot;</span>
+
+<span class="c1">#  execute this query </span>
+<span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+<span class="c1"># get rows</span>
+<span class="n">rows</span>  <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;Cincinnati Bearcats&#39;, &#39;Cincinnati&#39;, &#39;Ralph Abernathy&#39;, &#39;RB&#39;, 67.0, 161.0, &#39;JR&#39;, &#39;ATLANTA, GA&#39;, &#39;GA&#39;, 1)
+(&#39;Cincinnati Bearcats&#39;, &#39;Cincinnati&#39;, &#39;Mekale McKay&#39;, &#39;WR&#39;, 78.0, 195.0, &#39;SO&#39;, &#39;LOUISVILLE, KY&#39;, &#39;KY&#39;, 2)
+(&#39;Cincinnati Bearcats&#39;, &#39;Cincinnati&#39;, &#39;Trenier Orr&#39;, &#39;CB&#39;, 71.0, 177.0, &#39;SO&#39;, &#39;WINTER GARDEN, FL&#39;, &#39;FL&#39;, 3)
+(&#39;Cincinnati Bearcats&#39;, &#39;Cincinnati&#39;, &#39;Bennie Coney&#39;, &#39;QB&#39;, 75.0, 216.0, &#39;FR&#39;, &#39;PLANT CITY, FL&#39;, &#39;FL&#39;, 4)
+(&#39;Cincinnati Bearcats&#39;, &#39;Cincinnati&#39;, &#39;Johnny Holton&#39;, &#39;WR&#39;, 75.0, 190.0, &#39;JR&#39;, &#39;MIAMI, FL&#39;, &#39;FL&#39;, 5)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="python-mysql-example">
+<h3>Python MySQL Example<a class="headerlink" href="#python-mysql-example" title="Permalink to this headline">¶</a></h3>
+<p>Now let’s move to Python. First we are going to make <code class="docutils literal notranslate"><span class="pre">connect.py</span></code> file to test the connection.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mysql.connector</span>
+
+<span class="n">db</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+  <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+  <span class="n">user</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+  <span class="n">passwd</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="p">)</span>
+
+<span class="k">if</span> <span class="n">db</span><span class="o">.</span><span class="n">is_connected</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Successfully connected to MySQL database&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Try running the above code and see if you can connect to MySQL with <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">connect.py</span></code>.</p>
+<p>Now let’s make some database, tables, values to start with. Make new file <code class="docutils literal notranslate"><span class="pre">create_db.py</span></code> and run it.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mysql.connector</span>
+
+<span class="n">db</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+  <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+  <span class="n">user</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+  <span class="n">passwd</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="p">)</span>
+
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;CREATE DATABASE ftds&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Database Successfully Created&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To check if the database is created, you can open your MySQL Workbench and select the database <code class="docutils literal notranslate"><span class="pre">ftds</span></code>.</p>
+<p>Then you can create tables and insert values.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mysql.connector</span>
+
+<span class="n">db</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+  <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+  <span class="n">user</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+  <span class="n">passwd</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="n">database</span><span class="o">=</span><span class="s2">&quot;ftds&quot;</span>
+<span class="p">)</span>
+
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;CREATE TABLE student (</span>
+<span class="s2">  student_id INT AUTO_INCREMENT PRIMARY KEY,</span>
+<span class="s2">  name VARCHAR(255),</span>
+<span class="s2">  address Varchar(255)</span>
+<span class="s2">)</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Student Table Successfully Created&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Save with <code class="docutils literal notranslate"><span class="pre">create_table.py</span></code> and run it.</p>
+<p>Insert one values into the table, save with <code class="docutils literal notranslate"><span class="pre">insert_one.py</span></code>.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mysql.connector</span>
+
+<span class="n">db</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+  <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+  <span class="n">user</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+  <span class="n">passwd</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="n">database</span><span class="o">=</span><span class="s2">&quot;ftds&quot;</span>
+<span class="p">)</span>
+
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO student (name, address) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;</span>
+<span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Raka&quot;</span><span class="p">,</span> <span class="s2">&quot;Semarang&quot;</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+
+<span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> data added &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Look at the code we use to insert one value.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO student (name, address) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;</span>
+<span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Raka&quot;</span><span class="p">,</span> <span class="s2">&quot;Semarang&quot;</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+
+<span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>We use <code class="docutils literal notranslate"><span class="pre">%s</span></code> to indicate that we are passing in a string. Never use <code class="docutils literal notranslate"><span class="pre">sql</span> <span class="pre">=</span> <span class="pre">&quot;INSERT</span> <span class="pre">INTO</span> <span class="pre">customers</span> <span class="pre">(name,</span> <span class="pre">address)</span> <span class="pre">VALUES</span> <span class="pre">('&quot;+</span> <span class="pre">name</span> <span class="pre">+&quot;',</span> <span class="pre">'&quot;</span> <span class="pre">+</span> <span class="pre">address</span> <span class="pre">+&quot;')&quot;</span></code> to avoid SQL Injection.
+Finally we use db.commit() to commit the changes to the database. This method usually used when we need to insert, update, or delete data. But how about if we need to insert multiple data at once? Let’s make <code class="docutils literal notranslate"><span class="pre">insert_many.py</span></code> file and run it.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mysql.connector</span>
+
+<span class="n">db</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+  <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+  <span class="n">user</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+  <span class="n">passwd</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="n">database</span><span class="o">=</span><span class="s2">&quot;ftds&quot;</span>
+<span class="p">)</span>
+
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO customers (name, address) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">(</span><span class="s2">&quot;Danu&quot;</span><span class="p">,</span> <span class="s2">&quot;Jakarta&quot;</span><span class="p">),</span>
+  <span class="p">(</span><span class="s2">&quot;Fahmi&quot;</span><span class="p">,</span> <span class="s2">&quot;Surabaya&quot;</span><span class="p">),</span>
+  <span class="p">(</span><span class="s2">&quot;Sardi&quot;</span><span class="p">,</span> <span class="s2">&quot;Bandung&quot;</span><span class="p">),</span>
+  <span class="p">(</span><span class="s2">&quot;Hana&quot;</span><span class="p">,</span> <span class="s2">&quot;Depok&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+  <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+  <span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> data added&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>We can show data from the table with <code class="docutils literal notranslate"><span class="pre">select_all.py</span></code> file and run it.</p>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">fetchall()</span></code> to get all data from the table, <code class="docutils literal notranslate"><span class="pre">fetchone()</span></code> to get one data from the table, and <code class="docutils literal notranslate"><span class="pre">fetchmany()</span></code> to get multiple data from the table.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mysql.connector</span>
+
+<span class="n">db</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+  <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+  <span class="n">user</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+  <span class="n">passwd</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="n">database</span><span class="o">=</span><span class="s2">&quot;ftds&quot;</span>
+<span class="p">)</span>
+
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM student&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next we want to try to use <code class="docutils literal notranslate"><span class="pre">fetchoone()</span></code> to get one data from the table, with <code class="docutils literal notranslate"><span class="pre">select_one.py</span></code> file and run it.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mysql.connector</span>
+
+<span class="n">db</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+  <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+  <span class="n">user</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+  <span class="n">passwd</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="n">database</span><span class="o">=</span><span class="s2">&quot;ftds&quot;</span>
+<span class="p">)</span>
+
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM student&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s try update data with <code class="docutils literal notranslate"><span class="pre">update_one.py</span></code> file and run it.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mysql.connector</span>
+
+<span class="n">db</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+  <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+  <span class="n">user</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+  <span class="n">passwd</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="n">database</span><span class="o">=</span><span class="s2">&quot;ftds&quot;</span>
+<span class="p">)</span>
+
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;UPDATE student SET name=</span><span class="si">%s</span><span class="s2">, address=</span><span class="si">%s</span><span class="s2"> WHERE student_id=</span><span class="si">%s</span><span class="s2">&quot;</span>
+<span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Rachman&quot;</span><span class="p">,</span> <span class="s2">&quot;Lombok&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+
+<span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> data updated&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>We give new value to the data with <code class="docutils literal notranslate"><span class="pre">student_id</span></code> = 1.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">delete_one.py</span></code> file and run it.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mysql.connector</span>
+
+<span class="n">db</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+  <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+  <span class="n">user</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+  <span class="n">passwd</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="n">database</span><span class="o">=</span><span class="s2">&quot;ftds&quot;</span>
+<span class="p">)</span>
+
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;DELETE FROM student WHERE student_id=</span><span class="si">%s</span><span class="s2">&quot;</span>
+<span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+
+<span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> data deleted&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Finally we can combine everything we have learned in this session with <code class="docutils literal notranslate"><span class="pre">py_sql.py</span></code> file and run it.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mysql.connector</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">db</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+  <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+  <span class="n">user</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+  <span class="n">passwd</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="n">database</span><span class="o">=</span><span class="s2">&quot;ftds&quot;</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">insert_data</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Name: &quot;</span><span class="p">)</span>
+  <span class="n">address</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Address: &quot;</span><span class="p">)</span>
+  <span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
+  <span class="n">cursor</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+  <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO student (name, address) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;</span>
+  <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+  <span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> data added&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">show_data</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
+  <span class="n">cursor</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+  <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM student&quot;</span>
+  <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+  <span class="n">results</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+  
+  <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No data&quot;</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">update_data</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
+  <span class="n">cursor</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+  <span class="n">show_data</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+  <span class="n">student_id</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Select student id&gt; &quot;</span><span class="p">)</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;New Name: &quot;</span><span class="p">)</span>
+  <span class="n">address</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;New Address: &quot;</span><span class="p">)</span>
+
+  <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;UPDATE student SET name=</span><span class="si">%s</span><span class="s2">, address=</span><span class="si">%s</span><span class="s2"> WHERE student_id=</span><span class="si">%s</span><span class="s2">&quot;</span>
+  <span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">student_id</span><span class="p">)</span>
+  <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+  <span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> data changed&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">delete_data</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
+  <span class="n">cursor</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+  <span class="n">show_data</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+  <span class="n">student_id</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Select student id&gt; &quot;</span><span class="p">)</span>
+  <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;DELETE FROM student WHERE student_id=</span><span class="si">%s</span><span class="s2">&quot;</span>
+  <span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="n">student_id</span><span class="p">,)</span>
+  <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+  <span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> data deleted&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">search_data</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
+  <span class="n">cursor</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+  <span class="n">keyword</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Keyword: &quot;</span><span class="p">)</span>
+  <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM student WHERE name LIKE </span><span class="si">%s</span><span class="s2"> OR address LIKE </span><span class="si">%s</span><span class="s2">&quot;</span>
+  <span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;%</span><span class="si">{}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">keyword</span><span class="p">),</span> <span class="s2">&quot;%</span><span class="si">{}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">keyword</span><span class="p">))</span>
+  <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+  <span class="n">results</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+  
+  <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No Data&quot;</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">show_menu</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== H8 Py MySQL Exercise ===&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. Insert Data&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2. Show Data&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3. Update Data&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4. Delete Data&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;5. Search Data&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;0. Exit&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------&quot;</span><span class="p">)</span>
+  <span class="n">menu</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Select menu&gt; &quot;</span><span class="p">)</span>
+
+  <span class="c1">#clear screen</span>
+  <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;clear&quot;</span><span class="p">)</span>
+
+  <span class="k">if</span> <span class="n">menu</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+    <span class="n">insert_data</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="n">menu</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span>
+    <span class="n">show_data</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="n">menu</span> <span class="o">==</span> <span class="s2">&quot;3&quot;</span><span class="p">:</span>
+    <span class="n">update_data</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="n">menu</span> <span class="o">==</span> <span class="s2">&quot;4&quot;</span><span class="p">:</span>
+    <span class="n">delete_data</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="n">menu</span> <span class="o">==</span> <span class="s2">&quot;5&quot;</span><span class="p">:</span>
+    <span class="n">search_data</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="n">menu</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span><span class="p">:</span>
+    <span class="n">exit</span><span class="p">()</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wrong Input&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="k">while</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">show_menu</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Full code here https://github.com/ardhiraka/FTDS_post/tree/master/py_sql</p>
 </div>
 </div>
 </div>
